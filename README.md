@@ -19,8 +19,8 @@
 
 
     
-    <!-- 
+
     Si se desea borrar una migracion ejecute:
-    
+
     php artisan migrate:refresh 
-    php artisan migrate:fresh  -->
+    php artisan migrate:fresh
