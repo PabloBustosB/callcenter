@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Tecnico
-@endsection
-
 @section('content')
     <div class="container-fluid">
         <div class="row">

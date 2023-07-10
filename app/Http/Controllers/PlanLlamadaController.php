@@ -91,7 +91,7 @@ class PlanLlamadaController extends Controller
         $planLlamada->update($request->all());
 
         return redirect()->route('plan-llamadas.index')
-            ->with('success', 'PlanLlamada updated successfully');
+            ->with('success', 'PlanLlamada actualizado exitosamente');
     }
 
     /**

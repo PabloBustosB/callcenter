@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('template_title')
-    {{ __('Update') }} Tecnico
-@endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="">

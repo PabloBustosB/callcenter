@@ -91,7 +91,7 @@ class TecnicoController extends Controller
         $tecnico->update($request->all());
 
         return redirect()->route('tecnicos.index')
-            ->with('success', 'Tecnico updated successfully');
+            ->with('success', 'Tecnico actualizado exitosamente');
     }
 
     /**

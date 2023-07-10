@@ -18,11 +18,11 @@
 // }
 // var isNS = (navigator.appName == "Netscape") ? 1 : 0;
 // if (navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN || Event.MOUSEUP);
-//
+
 // function mischandler() {
 //     return false;
 // }
-//
+
 // function mousehandler(e) {
 //     var myevent = (isNS) ? e : event;
 //     var eventbutton = (isNS) ? myevent.which : myevent.button;
@@ -33,7 +33,7 @@
 // document.onmouseup = mousehandler;
 // (function(exportName) {
 //     var exports = exports || {};
-//
+
 //     function create(options) {
 //         if (typeof options === "function") {
 //             options = {
@@ -45,12 +45,12 @@
 //         var instance = {};
 //         instance.onchange = options.onchange;
 //         var status = "unknown";
-//
+
 //         function getStatus() {
 //             return status;
 //         }
 //         instance.getStatus = getStatus;
-//
+
 //         function checkHandler() {
 //             if (
 //                 window.Firebug &&
@@ -74,7 +74,7 @@
 //             }
 //             setStatus(checkStatus);
 //         }
-//
+
 //         function setStatus(value) {
 //             if (status !== value) {
 //                 status = value;
@@ -91,7 +91,7 @@
 //             checkHandler();
 //         }
 //         var freed;
-//
+
 //         function free() {
 //             if (freed) {
 //                 return;

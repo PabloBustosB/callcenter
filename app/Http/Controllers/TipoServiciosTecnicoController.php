@@ -91,7 +91,7 @@ class TipoServiciosTecnicoController extends Controller
         $tipoServiciosTecnico->update($request->all());
 
         return redirect()->route('tipo-servicios-tecnicos.index')
-            ->with('success', 'TipoServiciosTecnico updated successfully');
+            ->with('success', 'TipoServiciosTecnico actualizado exitosamente');
     }
 
     /**

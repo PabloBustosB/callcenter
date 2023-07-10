@@ -2950,14 +2950,14 @@ label.btn {
 .alert-success {
   border-color: #d9eae1;
   background-color: #e7f9ef;
-  color: #fff;
+  color: #000;
 }
 .alert-success hr {
   border-top-color: #d9eae1;
 }
 .alert-success .close,
 .alert-success .alert-link {
-  color: #fff;
+  color: #000;
 }
 
 .alert-dark-success {
