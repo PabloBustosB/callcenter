@@ -15,13 +15,12 @@
     <!-- Links -->
     <ul class="sidenav-inner py-1">
         <li class="sidenav-header small font-weight-semibold">Administrador</li>
-        <li class="sidenav-item active">
+        {{-- <li class="sidenav-item active">
             <a href="" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>
                 <div>Dashboards</div>
             </a>
-        </li>
-        <!-- Dashboards -->
+        </li> --}}
         <li class="sidenav-item active">
             <a href="{{ route('home')}}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>
@@ -59,6 +58,12 @@
             </a>
         </li>
         <li class="sidenav-item active">
+            <a href="{{ route('tipo-servicios-tecnicos.index') }}" class="sidenav-link">
+                <i class="sidenav-icon feather icon-pie-chart"></i>
+                <div>Tipo de Servicio Tecnico</div>
+            </a>
+        </li>
+        <li class="sidenav-item active">
             <a href="" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>
                 <div>Combos promocionales</div>
@@ -70,41 +75,11 @@
                 <div>Ordenes de trabajo</div>
             </a>
         </li>
-        <li class="sidenav-item active">
+        {{-- <li class="sidenav-item active">
             <a href="" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>
                 <div>Contratos de clientes</div>
             </a>
-        </li>
-        <li class="sidenav-item active">
-            <a href="" class="sidenav-link">
-                <i class="sidenav-icon feather icon-pie-chart"></i>
-                <div>Tipo de Servicio Tecnico</div>
-            </a>
-        </li>
-        <li class="sidenav-item active">
-            <a href="" class="sidenav-link">
-                <i class="sidenav-icon feather icon-pie-chart"></i>
-                <div>Cancelaciones Ordenes de Trabajo</div>
-            </a>
-        </li>
-        {{-- <li class="sidenav-item">
-            <a href="javascript:" class="sidenav-link sidenav-toggle">
-                <i class="sidenav-icon feather icon-users"></i>
-                <div>Consultas</div>
-            </a>
-            <ul class="sidenav-menu">
-                <li class="sidenav-item">
-                    <a href="mis-consultas.php" class="sidenav-link">
-                        <div>Consultas del dia</div>
-                    </a>
-                </li>
-                <li class="sidenav-item">
-                    <a href="modificar-consulta.php" class="sidenav-link">
-                        <div>Buscar Consulta</div>
-                    </a>
-                </li>
-            </ul>
         </li> --}}
     </ul>
 </div>

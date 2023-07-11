@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 Route::view('/login', 'login')->name('login');
 Route::view('/registro', 'registro')->name('registro');
-Route::view('/home', 'home')->middleware('auth')->name('home');
+Route::view('/home', 'home')->name('home');
+// Route::view('/home', 'home')->middleware('auth')->name('home');
 Route::view('/asistente', 'asistente.index')->name('asistente');
 
 Route::post('/validar-registro', [LoginController::class,'register'])->name('validar-registro');

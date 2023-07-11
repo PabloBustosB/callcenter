@@ -126,10 +126,11 @@ img{ max-width:100%;}
   margin: 8px 0 0;
 }
 .received_withd_msg { width: 57%;}
+/* Aqui se modifica el ancho */
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
-  width: 60%;
+  width: 100%;
 }
 
  .sent_msg p {
