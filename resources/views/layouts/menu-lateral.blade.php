@@ -33,6 +33,7 @@
                 <div>Asistente Virtual</div>
             </a>
         </li>
+        @if (Auth::user()->tipo == 'admin')
         <li class="sidenav-item active">
             <a href="{{ route('planinternets.index')}}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>
@@ -75,6 +76,8 @@
                 <div>Ordenes de trabajo</div>
             </a>
         </li>
+        @endif
+        
         {{-- <li class="sidenav-item active">
             <a href="" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>

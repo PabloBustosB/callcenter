@@ -2,11 +2,11 @@
 <nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-dark container-p-x" id="layout-navbar">
 
     <!-- Brand demo (see assets/css/demo/demo.css) -->
-    <a href="index.html" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
+    <a href="{{ route('home')}}" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
         <span class="app-brand-logo demo">
             <img src="{{ asset('assets/img/logo-dark.png') }}" alt="Brand Logo" class="img-fluid">
         </span>
-        <span class="app-brand-text demo font-weight-normal ml-2">Empire</span>
+        <span class="app-brand-text demo font-weight-normal ml-2">Call Center</span>
     </a>
 
     <!-- Sidenav toggle (see assets/css/demo/demo.css) -->
@@ -30,18 +30,14 @@
             <div class="demo-navbar-user nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                     <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">Juan Peres</span>
+                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">@auth {{Auth::user()->nombre}} @endauth</span>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="home.php" class="dropdown-item">
-                        <i class="feather icon-user text-muted"></i> &nbsp; Mis datos</a>
-                    <!-- <a href="javascript:" class="dropdown-item">
-                        <i class="feather icon-mail text-muted"></i> &nbsp; Messages</a>
-                    <a href="javascript:" class="dropdown-item">
-                        <i class="feather icon-settings text-muted"></i> &nbsp; Account settings</a> -->
-                    <div class="dropdown-divider"></div>
-                    <a href="cerrar_sesion.php" class="dropdown-item">
+                        {{-- <i class="feather icon-user text-muted"></i> &nbsp; Mis datos</a>
+                    <div class="dropdown-divider"></div> --}}
+                    <a href="{{ route('logout') }}" class="dropdown-item">
                         <i class="feather icon-power text-danger"></i> &nbsp; Log Out</a>
                 </div>
             </div>
