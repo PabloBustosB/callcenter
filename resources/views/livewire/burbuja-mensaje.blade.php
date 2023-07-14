@@ -4,7 +4,7 @@
             @if ($elem[0] == 'bot')
                 <div class="incoming_msg">
                     <div class="incoming_msg_img">
-                        <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                        <img src="https://ptetutorials.com/images/user-profile.png" alt="img">
                     </div>
                     <div class="received_msg">
                         <div class="received_withd_msg">
@@ -12,7 +12,7 @@
                                 {{ $elem[1] }}
                             </p>
                             {{-- <p>Preciona el boton de audio para que pueda ayudarte</p> --}}
-                            <span class="time_date"> {{ date('d-m-Y h:i:s') }}</span>
+                            <span class="time_date"> {{ $elem[2] }} </span>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                             {{ $elem[1] }}
 
                         </p>
-                        <span class="time_date"> {{ date('d-m-Y h:i:s') }}</span>
+                        <span class="time_date"> {{ $elem[2] }} </span>
                     </div>
                 </div>
             @endif
@@ -31,11 +31,10 @@
     </div>
     <div class="type_msg">
         <div class="input_msg_write">
-            <input type="text" class="write_msg" placeholder="Type a message" />
+            <input type="text" class="write_msg" placeholder="Escriba el mensaje" wire:model="msg"/>
             <button class="msg_send_btn" type="button" wire:click="enviarChat">
                 <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
             </button>
-            {{-- <button wire:click="increment">+</button> --}}
         </div>
     </div>
 </div>

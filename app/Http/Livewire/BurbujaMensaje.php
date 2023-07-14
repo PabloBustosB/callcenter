@@ -7,25 +7,21 @@ use Livewire\Component;
 class BurbujaMensaje extends Component
 {
     public $list = [];
-    public $cant;
-    
+    public $msg;
+
     public function mount()
     {
-        array_push($this->list,array('bot', 'Bienvenido a Tigo'));
-        array_push($this->list,array('user', 'Tengo problemas'));
-
-        array_push($this->list,array('bot', 'Bienvenido a Tigo'));
-        array_push($this->list,array('user', 'Tengo problemas'));
-        $this->cant = 4;
+        array_push($this->list, array('bot', 'Bienvenido a Tigo', date('d-m-Y h:i:s')));
     }
 
     public function enviarChat()
     {
-
-        array_push($this->list,array('user', 'buenas beunas'));
-        $this->cant++;
+        if ($this->msg != null) {
+            array_push($this->list, array('user', $this->msg, date('d-m-Y h:i:s')));
+            $this->msg = '';
+        }
     }
- 
+
     public function render()
     {
         return view('livewire.burbuja-mensaje');

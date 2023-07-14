@@ -31,7 +31,6 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
 										<th>Nombre</th>
 										<th>Especialidad</th>
 

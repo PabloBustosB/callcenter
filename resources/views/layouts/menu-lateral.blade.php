@@ -28,7 +28,7 @@
             </a>
         </li>
         <li class="sidenav-item active">
-            <a href="{{ route('asistente')}}" class="sidenav-link">
+            <a href="{{ route('asistente.index')}}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>
                 <div>Asistente Virtual</div>
             </a>

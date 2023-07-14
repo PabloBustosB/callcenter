@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsistenteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 /*
@@ -22,7 +23,8 @@ Route::view('/login', 'login')->name('login');
 Route::view('/registro', 'registro')->name('registro');
 // Route::view('/home', 'home')->name('home');
 Route::view('/home', 'home')->middleware('auth')->name('home');
-Route::view('/asistente', 'asistente.index')->middleware('auth')->name('asistente');
+// Route::view('/asistente', 'asistente.index')->middleware('auth')->name('asistente');
+Route::resource('asistente', App\Http\Controllers\AsistenteController::class)->middleware('auth');
 
 Route::post('/validar-registro', [LoginController::class,'register'])->name('validar-registro');
 Route::post('/inicia-sesion', [LoginController::class,'login'])->name('inicia-sesion');
