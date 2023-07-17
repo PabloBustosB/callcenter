@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ $datos }}
+    {{-- {{ $datos }} --}}
     <h3 class=" text-center">Bienvenido a Nuestro Asistente Virtual</h3>
     <div class="messaging">
         <div class="inbox_msg">

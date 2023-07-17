@@ -15,10 +15,10 @@
 
 <!-- Icon fonts -->
 <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/fonts/ionicons.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/fonts/ionicons.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/fonts/linearicons.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/fonts/open-iconic.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/fonts/pe-icon-7-stroke.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/pe-icon-7-stroke.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('assets/fonts/feather.css') }}">
 
 <!-- Core stylesheets -->
@@ -28,13 +28,12 @@
 
 <!-- Libs -->
 <link rel="stylesheet" href="{{ asset('assets/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/libs/flot/flot.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/libs/flot/flot.css') }}"> --}}
 {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
 {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css"
-    rel="stylesheet">
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet"> --}}
 {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
 {{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
 {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}

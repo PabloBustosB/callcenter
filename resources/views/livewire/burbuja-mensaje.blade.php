@@ -11,7 +11,6 @@
                             <p>
                                 {{ $elem[1] }}
                             </p>
-                            {{-- <p>Preciona el boton de audio para que pueda ayudarte</p> --}}
                             <span class="time_date"> {{ $elem[2] }} </span>
                         </div>
                     </div>
@@ -33,7 +32,7 @@
         <div class="input_msg_write">
             <input type="text" class="write_msg" placeholder="Escriba el mensaje" wire:model="msg"/>
             <button class="msg_send_btn" type="button" wire:click="enviarChat">
-                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                <i class="fa fa-microphone" aria-hidden="true"></i>
             </button>
         </div>
     </div>

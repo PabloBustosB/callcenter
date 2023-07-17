@@ -10,27 +10,26 @@ class AsistenteController extends Controller
 {
     protected $dialogflowService;
 
-    public function __construct(DialogflowService $dialogflowService)
+    public function __construct()
     {
-        $this->dialogflowService = $dialogflowService;
+        $this->dialogflowService = new DialogflowService();
     }
 
     public function chat($texto)
     {
-        $sessionId = 123456789;
+        $sessionId = mt_rand(100000000,999999999);
         $query = $texto;
 
         $response = $this->dialogflowService->detectIntent($sessionId, $query);
 
         // Realiza alguna acción con la respuesta de Dialogflow
-
         return $response;
     }
 
     public function index()
     {
-        $datos = $this->chat("mi internet falla");
-
+        // $datos = $this->chat("Quisiera mas informacion de sus servisios");
+        $datos = "";
         return view('asistente.index')->with('datos', $datos);
     }
 }

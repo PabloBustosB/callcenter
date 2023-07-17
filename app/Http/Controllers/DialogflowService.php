@@ -36,7 +36,9 @@ class DialogflowService
         $response = $this->sessionsClient->detectIntent($session, $queryInput);
         $queryResult = $response->getQueryResult();
         $intentDisplayName = $queryResult->getIntent()->getDisplayName();
-
-        return $intentDisplayName;
+        $respuesta = $queryResult->getFulfillmentText();
+        
+        $array_response = [$intentDisplayName,$respuesta];
+        return $array_response;
     }
 }
