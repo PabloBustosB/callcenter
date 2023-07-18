@@ -37,10 +37,4 @@ Route::resource('plan-llamadas', App\Http\Controllers\PlanLlamadaController::cla
 Route::resource('tipo-servicios-tecnicos', App\Http\Controllers\TipoServiciosTecnicoController::class)->middleware('auth');
 
 
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::view('/prueba', 'asistente.prueba')->name('prueba');

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -12,6 +13,15 @@ class BurbujaMensaje extends Component
     public function mount()
     {
         array_push($this->list, array('bot', 'Bienvenido a Tigo', date('d-m-Y h:i:s')));
+        $this->msg = "";
+    }
+
+    protected $listeners = ['campoActualizado'];
+
+    public function campoActualizado($valor)
+    {
+        $this->msg = $valor;
+        $this->enviarChat();
     }
 
     public function enviarChat()

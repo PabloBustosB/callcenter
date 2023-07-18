@@ -239,7 +239,7 @@
         color: #4c4c4c;
         font-size: 14px;
         min-height: 50px;
-        width: 90%;
+        width: 1050px;
     }
 
     .type_msg {
@@ -255,7 +255,7 @@
         cursor: pointer;
         font-size: 20px;
         height: 40px;
-        position: absolute;
+        position: relative;
         right: 0;
         top: 5px;
         width: 50px;

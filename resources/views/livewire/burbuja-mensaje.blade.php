@@ -28,12 +28,19 @@
             @endif
         @endforeach
     </div>
-    <div class="type_msg">
+    <div class="type_msg" id="content">
         <div class="input_msg_write">
-            <input type="text" class="write_msg" placeholder="Escriba el mensaje" wire:model="msg"/>
-            <button class="msg_send_btn" type="button" wire:click="enviarChat">
+            <input type="text" class="write_msg" id="phraseDiv" wire:model="msg" placeholder="Escriba un mensaje"/>
+            <button class="msg_send_btn" id="startRecognizeOnceAsyncButton" type="button">
                 <i class="fa fa-microphone" aria-hidden="true"></i>
             </button>
+            <button class="msg_send_btn" type="button" wire:click="enviarChat">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+            <div id="text-button" class="mt-3" hidden>
+                <button class="btn btn-secondary" id="startSpeakTextAsyncButton">Reproducir texto</button>
+            </div>
         </div>
     </div>
 </div>
+
