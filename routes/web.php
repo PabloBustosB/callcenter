@@ -38,3 +38,5 @@ Route::resource('tipo-servicios-tecnicos', App\Http\Controllers\TipoServiciosTec
 
 
 Route::view('/prueba', 'asistente.prueba')->name('prueba');
+
+Route::get('/reporte/ordenSoporte',[App\Http\Controllers\InteraccionController::class,'pdf'])->name('reporte.orden_soporte' );
