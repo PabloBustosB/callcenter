@@ -29,6 +29,7 @@
 </head>
 
 <body>
+    <h1 > Reporte de Prueba </h1>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table" border="2">
@@ -42,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($interacciones as $interaccion)
+                    {{-- @foreach ($interacciones as $interaccion)
                         <tr>
                             <td>{{ $interaccion->id }}</td>
                             <td>{{ $interaccion->fecha }}</td>
@@ -50,7 +51,7 @@
                             <td>{{ $interaccion->tipo_servicio->nombre_servicio }}</td>
                             <td>{{ $interaccion->usuario->nombre }}</td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>

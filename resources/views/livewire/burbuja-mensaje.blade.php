@@ -3,9 +3,13 @@
         @foreach ($list as $elem)
             @if ($elem[0] == 'bot')
                 <div class="incoming_msg">
+                    
                     <div class="incoming_msg_img">
+                        @if ($elem[3] == 1)
                         <img src="https://ptetutorials.com/images/user-profile.png" alt="img">
+                        @endif
                     </div>
+                    
                     <div class="received_msg">
                         <div class="received_withd_msg">
                             <p>
@@ -22,6 +26,7 @@
                             {{ $elem[1] }}
 
                         </p>
+                        
                         <span class="time_date"> {{ $elem[2] }} </span>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ class InteraccionController extends Controller
         $interacciones = Interaccion::whereDate('fecha', $fechaBusqueda)->with('usuario','tipo_servicio')->get();
         // return view('asistente.pdf_soporte_internet',compact('interacciones'));
         $pdf = PDF::loadView('asistente.pdf_soporte_internet',['interacciones' =>$interacciones]);
-        // return $pdf->stream();
-        return $pdf->download();
+        return $pdf->stream();
+        // return $pdf->download();
     }
 }
