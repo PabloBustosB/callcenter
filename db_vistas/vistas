@@ -1,0 +1,9 @@
+CREATE VIEW ordenTecnico AS
+SELECT ot.id, ot.problema, ot.estado, ot.fecha_visita, te.nombre
+FROM ordenTrabajo AS ot
+INNER JOIN tecnicos AS te ON ot.id_tecnico=te.id;
+
+SELECT* FROM ordenTecnico WHERE fecha_visita between '2023-07-01' and '2023-07-31';
+SELECT count(id) FROM ordenTecnico WHERE fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
+SELECT count(id) FROM ordenTecnico WHERE estado='Solucionado' AND fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
+
