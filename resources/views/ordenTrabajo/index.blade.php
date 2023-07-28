@@ -36,14 +36,16 @@
                         <p>Aún no se ha realizado la consulta.</p>
                     @endif
                 </form>
-                <h2>Consulta de Órdenes de Trabajo</h2>
-                <p>Resultados para el rango de fechas: {{ $desde }} - {{ $hasta }}</p>
+                <div id="titulo">
+                    <h2>Consulta de Órdenes de Trabajo</h2>
+                    <p>Resultados para el rango de fechas: {{ $desde }} - {{ $hasta }}</p>
+                </div>
                 <button type="button" id="botonExportar">Exportar a PDF</button>
             </div>
     </div>
 </div>
 
-<div class="row p-3 mb-2">
+<div id="indice" class="row p-3 mb-2">
   <div class="col-lg-3 col-6 text-center">
     <div class="border border-light border-3 border-radius-md py-3 numeros">
       <h6 class="text-primary text-gradient mb-0">total</h6>
@@ -71,7 +73,7 @@
 </div>
 
 
-<div class="container text-center grafica-container p-3">
+<div id="graficos-container" class="container text-center grafica-container p-3">
     <div class="row row-cols-2">
         <!-- Contenedor para los gráficos -->
         <div class="col">
@@ -234,18 +236,33 @@
 <!-- Script para capturar la vista en una imagen usando Html2canvas y generar el PDF con JSPDF -->
 <script>
         document.getElementById('botonExportar').addEventListener('click', function() {
-            // Capturar la vista en una imagen usando Html2canvas
-            html2canvas(document.body).then(function(canvas) {
-                var imgData = canvas.toDataURL('image/png'); // Convertir la imagen a base64
+            // Obtener los elementos que deseas incluir en el reporte PDF
+            const indice = document.getElementById('indice');
+            const graficosContainer = document.getElementById('graficos-container');
+            const titulo = document.getElementById('titulo');
 
-                // Crear un objeto JSPDF
-                var pdf = new jsPDF();
+            // Convertir los elementos en imágenes utilizando html2canvas
+            html2canvas(indice).then(function(canvasIndice) {
+                html2canvas(graficosContainer).then(function(canvasGraficos) {
+                    html2canvas(titulo).then(function(canvasTitulo) {
+                        // Obtener la URL de las imágenes en formato base64
+                        const imgDataIndice = canvasIndice.toDataURL('image/png');
+                        const imgDataGraficos = canvasGraficos.toDataURL('image/png');
+                        const imgDataTitulo = canvasTitulo.toDataURL('image/png');
 
-                // Agregar la imagen al PDF
-                pdf.addImage(imgData, 'PNG', 10, 10, 190, 250); // Ajustar las coordenadas y dimensiones según sea necesario
+                        // Crear el objeto PDF utilizando DomPDF
+                        const pdf = new jsPDF('l', 'mm', 'a4'); // 'l' para orientación horizontal, 'mm' para unidades en milímetros, 'a4' para tamaño de papel A4
 
-                // Guardar o mostrar el PDF
-                pdf.save('reporte.pdf');
+                        // Agregar las imágenes al PDF
+                        pdf.addImage(imgDataTitulo, 'PNG', 100, 10, 200, 20);
+                        pdf.addImage(imgDataIndice, 'PNG', 20, 30, 250, 40); // Los parámetros representan la posición y tamaño de la imagen en el PDF
+                        pdf.addImage(imgDataGraficos, 'PNG', 20, 70, 250, 120);
+
+
+                        // Guardar el PDF con el nombre 'reporte.pdf'
+                        pdf.save('reporte.pdf');
+                    });
+                });
             });
         });
     </script>
