@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AsistenteController;
+use App\Http\Controllers\OrdenTrabajoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 /*
@@ -42,3 +43,10 @@ Route::view('/prueba', 'asistente.prueba')->name('prueba');
 Route::get('/reporte/ordenSoporte',[App\Http\Controllers\InteraccionController::class,'pdf'])->name('reporte.orden_soporte' );
 
 Route::view('/prueba', 'asistente.pdf_soporte_internet')->name('prueba');
+Route::get('/consultar-ordenes', [OrdenTrabajoController::class, 'consultarOrdenesPorFecha'])->name('procesar.formulario');
+
+Route::get('/consultar-interacciones', [InteraccionController::class, 'consultarInteraccionesPorFecha'])->name('procesar.interaccion');
+
+Route::get('/reporte/ordenes/{desde}/{hasta}', [OrdenTrabajoController::class, 'reporteOrdenesPorFecha'])->name('reporte.ordenes');
+
+

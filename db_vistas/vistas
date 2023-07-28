@@ -1,9 +1,51 @@
+//CREAMOS UNA VISTA PARA UNIR LAS DOS TABLAS QUE NECESITAMOS PARA REALIZAR LAS
+//CONSULTAS PARA REALIZAR UN REPORTE DE LAS ORDENES DE TRABAJO QUE TIENE UN TECNICO
 CREATE VIEW ordenTecnico AS
 SELECT ot.id, ot.problema, ot.estado, ot.fecha_visita, te.nombre
 FROM ordenTrabajo AS ot
 INNER JOIN tecnicos AS te ON ot.id_tecnico=te.id;
 
+//CONSULTA QUE NOS VA SERVIR PARA VER LAS ORDENES DE TRABAJO EN UN RANGO
 SELECT* FROM ordenTecnico WHERE fecha_visita between '2023-07-01' and '2023-07-31';
-SELECT count(id) FROM ordenTecnico WHERE fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
-SELECT count(id) FROM ordenTecnico WHERE estado='Solucionado' AND fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
 
+//CONSULTA QUE NOS DIRA EL NUMERO DE ORDENES DE TRABAJO QUE TENEMOS EN ESE RANGO DE MESES O MES
+SELECT count(id) FROM ordenTecnico WHERE fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
+
+//CONSULTA QUE NOS DA EL NUMERO DE ORDENES DE TRABAJO QUE SE HAN COMPLETADO EN ESE RANGO DE MESES O MES
+SELECT count(id) FROM ordenTecnico WHERE estado='completado' AND fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
+
+//VER A LOS TECNICOS CUANTAS ORDENES DE TRABAJO TIENEN PENDIENTES
+//PODEMOS CAMBIAR EL ESTADO VAR SABER CUANTAS YA ESTAN EN PROCESO
+//CUANTAS YA ESTAN TERMINADAS ESTO POR TECNICO estado={completado,en progreso, pendiente}
+SELECT count(estado) AS contador, nombre FROM ordenTecnico WHERE estado='pendiente' and fecha_visita between '2023-0
+7-01' and '2023-07-31' group by nombre;
+
+select count(estado) as contar, nombre, estado
+from ordenTecnico
+where fecha_visita between '2023-07-01' and '2023-07-31' group by nombre;
+
+select count(estado) as contador, nombre
+FROM ordenTecnico
+WHERE fecha_visita between '2023-07-01' and '2023-07-31' group by nombre;
+
+//VER EL NUMERO DE ESTADOS DE LAS ORDENES DE TRABAJO
+SELECT COUNT(estado) AS contador, estado, nombre \
+FROM ordenTecnico \
+WHERE fecha_visita BETWEEN '2023-07-01' AND '2023-07-31' GROUP BY nombre, estado \
+---------------------------------------------------------------------------------
+-------------SEGUNDA VISTA-------------------------------------------------------
+---------------------------------------------------------------------------------
+//CREAR VISTA PARA SABER EL NUMERO DE TIPO DE SERVICIOS TENCINOS OCURRIERON EN UN
+//DETERMINADO PERIODO DE TIEMPO
+CREATE VIEW interaccionServicioTecnico AS \
+SELECT inte.id, inte.fecha, ts.nombre_servicio \
+FROM interaccion AS inte \
+INNER JOIN tipo_servicios_tecnicos AS ts ON inte.id_tipo_servicio_tecnico=ts.id;
+
+//CANTIDAD TOTAL DEL INTERACCIONES TOMA TODA LA TABLA
+select count(*) from interaccionServicioTecnico;
+//CANTIDAD POR TIPO DE SERVICIOS TOTAL SIN FECHA TOMA TODA LA TABLA
+select count(nombre_servicio) AS cantidad,nombre_servicio from interaccionServicioTecnico group by nombre_servicio;
+//CANTIDAD DE INTERACCIONES POR UN RANGO DE FECHA
+select count(nombre_servicio), nombre_servicio from interaccionServicioTecnico where fecha between '2023-
+07-01' and '2023-07-31' group by nombre_servicio;

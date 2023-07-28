@@ -1,3 +1,3 @@
 import * as bootstrap from 'bootstrap'
-import './microfono'
+//import './microfono'
 // import './audio'
