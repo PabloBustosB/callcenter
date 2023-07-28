@@ -94,7 +94,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('js/cUp.js') }}"></script>
-
+    <script src="{{ asset('js/html2canvas.js') }}"></script>
+    <script src="{{ asset('js/jspdf.min.js') }}"></script>
 
 
 
@@ -230,6 +231,24 @@
 </script>
 
 
+<!-- Script para capturar la vista en una imagen usando Html2canvas y generar el PDF con JSPDF -->
+<script>
+        document.getElementById('botonExportar').addEventListener('click', function() {
+            // Capturar la vista en una imagen usando Html2canvas
+            html2canvas(document.body).then(function(canvas) {
+                var imgData = canvas.toDataURL('image/png'); // Convertir la imagen a base64
+
+                // Crear un objeto JSPDF
+                var pdf = new jsPDF();
+
+                // Agregar la imagen al PDF
+                pdf.addImage(imgData, 'PNG', 10, 10, 190, 250); // Ajustar las coordenadas y dimensiones según sea necesario
+
+                // Guardar o mostrar el PDF
+                pdf.save('reporte.pdf');
+            });
+        });
+    </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
