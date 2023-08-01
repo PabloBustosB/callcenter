@@ -7,6 +7,7 @@ use App\Models\Interaccion;
 use App\Models\User;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class InteraccionController extends Controller
 {
@@ -32,5 +33,21 @@ class InteraccionController extends Controller
         $pdf = PDF::loadView('asistente.pdf_soporte_internet',['interacciones' =>$interacciones]);
         return $pdf->stream();
         // return $pdf->download();
+    }
+
+    public function reporteInteraccion(Request $request)
+    {
+        // Obtener el año del formulario
+        $ano = $request->input('ano');
+
+        // Consulta para obtener los datos filtrados por el año
+        $datos = DB::table('interaccionServicioTecnico')
+            ->selectRaw("MONTHNAME(fecha) AS mes, nombre_servicio, COUNT(*) AS cantidad")
+            ->whereYear('fecha', $ano)
+            ->groupByRaw("MONTH(fecha), nombre_servicio")
+            ->get();
+
+        // Pasar los datos y el año a la vista 'reporte.blade.php'
+        return view('asistente.reporte', compact('datos', 'ano'));
     }
 }

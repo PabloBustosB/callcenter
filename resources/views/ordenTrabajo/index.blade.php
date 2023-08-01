@@ -2,6 +2,8 @@
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link href="{{ asset('css/flatpickr.min.css') }}" rel="stylesheet" >
     <title>Consulta de Órdenes de Trabajo</title>
 
 
@@ -11,36 +13,44 @@
         .numeros{
             background-color: rgba(12, 98, 88, 0.5);
         }
+
     </style>
 </head>
 <body>
 
 <div class="container"
     <div class="d-flex align-items-center vh-100">
-            <div class="mx-auto">
+            <div class="container mt-5">
                 <h1>Consulta de Órdenes de Trabajo</h1>
                 <form action="{{ route('procesar.formulario') }}" method="get">
-                    <label for="desde">Desde:</label>
-                    <input type="date" id="desde" name="desde">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="desde">Desde:</label>
+                                <input type="date" class="form-control" id="desde" name="desde">
 
-                    <label for="hasta">Hasta:</label>
-                    <input type="date" id="hasta" name="hasta">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="hasta">Hasta:</label>
+                                <input type="date" class="form-control" id="hasta" name="hasta">
 
-                    <button type="submit">Consultar</button>
-                    <!-- Botón para exportar el reporte -->
-                    <!-- Botón para exportar el reporte -->
-                    @if ($desde && $hasta)
-                        <a href="{{ route('reporte.ordenes', ['desde' => $desde, 'hasta' => $hasta]) }}" class="btn btn-primary">Exportar</a>
-                    @else
-                        <button class="btn btn-primary" disabled>Exportar</button>
-                        <p>Aún no se ha realizado la consulta.</p>
-                    @endif
+                            </div>
+                        </div>
+                        <div class="col-md-4 p-4">
+                            <button type="submit" class="btn btn-warning">Consultar</button>
+                        </div>
+                    </div>
                 </form>
                 <div id="titulo">
-                    <h2>Consulta de Órdenes de Trabajo</h2>
+                    <h2>Reporte de Órdenes de Trabajo</h2>
                     <p>Resultados para el rango de fechas: {{ $desde }} - {{ $hasta }}</p>
                 </div>
-                <button type="button" id="botonExportar">Exportar a PDF</button>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" id="botonExportar">Exportar a PDF</button>
+                </div>
+
             </div>
     </div>
 </div>
@@ -98,7 +108,7 @@
     <script src="{{ asset('js/cUp.js') }}"></script>
     <script src="{{ asset('js/html2canvas.js') }}"></script>
     <script src="{{ asset('js/jspdf.min.js') }}"></script>
-
+    <script src="{{ asset('js/flatpickr.js') }}"></script>
 
 
     <!-- Script para crear la gráfica de barras -->
@@ -127,11 +137,11 @@
                     y: {
                         beginAtZero: true,
                         ticks: {
-                        stepSize: 1, // Incremento entre los valores del eje Y
-                        callback: function(value, index, values) {
-                            return Math.round(value); // Mostrar solo números enteros
+                            stepSize: 1, // Incremento entre los valores del eje Y
+                            callback: function(value, index, values) {
+                                return Math.round(value); // Mostrar solo números enteros
+                            }
                         }
-                    }
                     }
                 }
             },
@@ -267,10 +277,56 @@
         });
     </script>
 
+<script>
+    // Obtener los elementos input tipo date
+    const desdeInput = document.getElementById('desde');
+    const hastaInput = document.getElementById('hasta');
+
+    // Establecer texto personalizado al obtener el enfoque en el input
+    desdeInput.addEventListener('focus', function() {
+        this.setAttribute('placeholder', 'Seleccionar una fecha');
+    });
+
+    hastaInput.addEventListener('focus', function() {
+        this.setAttribute('placeholder', 'Seleccionar una fecha');
+    });
+
+    // Restaurar texto original al perder el enfoque en el input
+    desdeInput.addEventListener('blur', function() {
+        this.setAttribute('placeholder', 'dd/mm/yyyy');
+    });
+
+    hastaInput.addEventListener('blur', function() {
+        this.setAttribute('placeholder', 'dd/mm/yyyy');
+    });
+</script>
+
+
+
+
+
+
+<script>
+    // Agrega esta línea en tu función para inicializar Flatpickr automáticamente
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#desde", {
+        dateFormat: "Y/m/d",
+        placeholder: "Seleccionar una fecha",
+        clickOpens: true // Mostrar el calendario al recibir el foco
+    });
+
+    flatpickr("#hasta", {
+        dateFormat: "Y/m/d",
+        placeholder: "Seleccionar una fecha",
+        clickOpens: true // Mostrar el calendario al recibir el foco
+    });
+});
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 
 </body>
