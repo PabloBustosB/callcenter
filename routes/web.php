@@ -37,7 +37,7 @@ Route::resource('plan-llamadas', App\Http\Controllers\PlanLlamadaController::cla
 Route::resource('tipo-servicios-tecnicos', App\Http\Controllers\TipoServiciosTecnicoController::class)->middleware('auth');
 
 
-Route::view('/prueba', 'asistente.prueba')->name('prueba');
+// Route::view('/prueba', 'asistente.prueba')->name('prueba');
 
 Route::get('/reporte/ordenSoporte',[App\Http\Controllers\InteraccionController::class,'pdf'])->name('reporte.orden_soporte' );
 

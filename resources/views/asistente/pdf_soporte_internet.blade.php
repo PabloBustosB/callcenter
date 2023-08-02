@@ -25,24 +25,25 @@
     <link rel="stylesheet" href="{{ public_path('assets/css/uikit.css') }}" type="text/css">
 
     <!-- Libs -->
-    <link rel="stylesheet" href="{{ public_path('assets/libs/perfect-scrollbar/perfect-scrollbar.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ public_path('assets/libs/perfect-scrollbar/perfect-scrollbar.css') }}"
+        type="text/css">
 </head>
 
 <body>
-    <h1 > Reporte de Prueba </h1>
+    <h1> Contrato de Instalación </h1>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table" border="2">
-                <thead class="thead-dark">
+            <table>
+                <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Fecha</th>
-                        <th>Descripcion</th>
-                        <th> Tipo de Servicio </th>
-                        <th> Usuario </th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <th>Cliente:</th>
+                    <th></th>
+                    <th>Juan Peres</th>
                     {{-- @foreach ($interacciones as $interaccion)
                         <tr>
                             <td>{{ $interaccion->id }}</td>

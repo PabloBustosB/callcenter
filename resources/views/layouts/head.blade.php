@@ -60,7 +60,7 @@
     }
 
     img {
-        max-width: 80%;
+        max-width: 100%;
     }
 
     .inbox_people {
@@ -175,14 +175,14 @@
 
     .incoming_msg_img {
         display: inline-block;
-        width: 8%;
+        width: 5%;
     }
 
     .received_msg {
         display: inline-block;
         padding: 0 0 0 10px;
         vertical-align: top;
-        width: 90%;
+        width: 94%;
     }
 
     .received_withd_msg p {
@@ -192,7 +192,7 @@
         font-size: 20px;
         margin: 0;
         padding: 5px 10px 5px 12px;
-        width: 90%;
+        width: 100%;
     }
 
     .time_date {
