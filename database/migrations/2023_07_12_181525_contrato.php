@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('contrato', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_fin')->nullable();
             $table->string('estado');
             $table->string('nombre_facturacion');
             $table->string('nit');

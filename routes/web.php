@@ -5,6 +5,7 @@ use App\Http\Controllers\OrdenTrabajoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\InteraccionController;
+use App\Http\Controllers\FacturaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,3 +49,5 @@ Route::view('/prueba', 'asistente.pdf_soporte_internet')->name('prueba');
 Route::get('/consultar-ordenes', [OrdenTrabajoController::class, 'consultarOrdenesPorFecha'])->name('procesar.formulario');
 
 Route::get('/consultar-interacciones', [InteraccionController::class, 'reporteInteraccion'])->name('procesar.reporte');
+
+Route::get('/consultar-factura', [FacturaController::class, 'reporteFactura'])->name('procesar.factura');

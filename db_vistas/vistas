@@ -49,3 +49,22 @@ select count(nombre_servicio) AS cantidad,nombre_servicio from interaccionServic
 //CANTIDAD DE INTERACCIONES POR UN RANGO DE FECHA
 select count(nombre_servicio), nombre_servicio from interaccionServicioTecnico where fecha between '2023-
 07-01' and '2023-07-31' group by nombre_servicio;
+
+//CONSULTA PARA CAPTURAR LOS TIPOS DE SERVICIOS EN ESTE CASO LAS INSTALACIONES,
+QUE SE VEN EN LAS INTERACCIONES Y QUE ESTAS INTERACCIONES GENERAN UNA ORDEN DE TRABAJO
+SELECT
+    ot.id AS orden_trabajo_id,
+    ot.descripcion AS orden_trabajo_descripcion,
+    i.id AS interaccion_id,
+    i.descripcion AS interaccion_descripcion,
+    t.id AS tipo_servicio_id,
+    t.nombre_servicio AS tipo_servicio_nombre
+FROM
+    ordentrabajo ot
+INNER JOIN
+    interaccion i ON ot.id_interaccion = i.id
+INNER JOIN
+    tipo_servicios_tecnicos t ON i.id_tipo_servicio_tecnico = t.id
+WHERE
+    t.nombre_servicio = 'Instalacion';
+

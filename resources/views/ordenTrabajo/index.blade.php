@@ -277,29 +277,7 @@
         });
     </script>
 
-<script>
-    // Obtener los elementos input tipo date
-    const desdeInput = document.getElementById('desde');
-    const hastaInput = document.getElementById('hasta');
 
-    // Establecer texto personalizado al obtener el enfoque en el input
-    desdeInput.addEventListener('focus', function() {
-        this.setAttribute('placeholder', 'Seleccionar una fecha');
-    });
-
-    hastaInput.addEventListener('focus', function() {
-        this.setAttribute('placeholder', 'Seleccionar una fecha');
-    });
-
-    // Restaurar texto original al perder el enfoque en el input
-    desdeInput.addEventListener('blur', function() {
-        this.setAttribute('placeholder', 'dd/mm/yyyy');
-    });
-
-    hastaInput.addEventListener('blur', function() {
-        this.setAttribute('placeholder', 'dd/mm/yyyy');
-    });
-</script>
 
 
 
