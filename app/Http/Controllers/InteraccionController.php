@@ -8,10 +8,14 @@ use App\Models\User;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
+use App\Http\Livewire\ChatModal; // Importa el componente Livewire
 
 class InteraccionController extends Controller
 {
     public function index(){
+        $satisfacciones = DB::table('satisfaccionUsuario')->get();
+        return view('interaccion.index', compact('satisfacciones'));
 
     }
 

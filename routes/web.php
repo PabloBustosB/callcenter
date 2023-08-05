@@ -1,11 +1,14 @@
 <?php
-
+use Livewire\Livewire;
 use App\Http\Controllers\AsistenteController;
 use App\Http\Controllers\OrdenTrabajoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\InteraccionController;
 use App\Http\Controllers\FacturaController;
+use App\Http\Livewire\ChatModal;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,3 +54,9 @@ Route::get('/consultar-ordenes', [OrdenTrabajoController::class, 'consultarOrden
 Route::get('/consultar-interacciones', [InteraccionController::class, 'reporteInteraccion'])->name('procesar.reporte');
 
 Route::get('/consultar-factura', [FacturaController::class, 'reporteFactura'])->name('procesar.factura');
+
+Route::get('/interacciones', [InteraccionController::class, 'index'])->name('interacciones.index');
+
+Route::get('/chat-modal', ChatModal::class);
+
+

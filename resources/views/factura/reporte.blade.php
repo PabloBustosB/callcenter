@@ -57,7 +57,7 @@
   </div>
 </div>
 
-<div id="grafico" class="container text-center">
+<div id="grafico" class="container text-center p-6">
     <canvas id="myChart" width="400" height="200"></canvas>
 <div>
 

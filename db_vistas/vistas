@@ -50,6 +50,9 @@ select count(nombre_servicio) AS cantidad,nombre_servicio from interaccionServic
 select count(nombre_servicio), nombre_servicio from interaccionServicioTecnico where fecha between '2023-
 07-01' and '2023-07-31' group by nombre_servicio;
 
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 //CONSULTA PARA CAPTURAR LOS TIPOS DE SERVICIOS EN ESTE CASO LAS INSTALACIONES,
 QUE SE VEN EN LAS INTERACCIONES Y QUE ESTAS INTERACCIONES GENERAN UNA ORDEN DE TRABAJO
 SELECT
@@ -68,3 +71,31 @@ INNER JOIN
 WHERE
     t.nombre_servicio = 'Instalacion';
 
+-------------------------------------------------------------
+----------------------Tercer vista---------------------------
+-------------------------------------------------------------
+CREATE VIEW vista_reporte_montos_fecha AS
+SELECT
+    CASE
+        WHEN sc.id_plan_internet IS NOT NULL THEN 'Internet'
+        WHEN sc.id_plan_tvcable IS NOT NULL THEN 'TV Cable'
+        WHEN sc.id_plan_llamada IS NOT NULL THEN 'Llamada'
+        WHEN sc.id_combo_promo IS NOT NULL THEN 'Combo Promo'
+    END AS tipo_plan,
+    SUM(f.monto) AS monto_total,
+    f.fecha AS fecha_factura
+FROM
+    servicio_contratado sc
+JOIN
+    factura f ON sc.id = f.id_servicio_contratado
+GROUP BY
+    tipo_plan, fecha_factura;
+
+
+------------------------------------------------------------
+-------------------------Cuarta vista-----------------------
+------------------------------------------------------------
+CREATE VIEW satisfaccionUsuario AS
+SELECT i.id, i.fecha, i.descripcion, u.nombre \
+FROM interaccion i \
+INNER JOIN users u ON i.id_usuario=u.id WHERE u.tipo='usuario';
