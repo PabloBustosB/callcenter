@@ -34,7 +34,7 @@
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="home.php" class="dropdown-item">
+                    <a href="{{ route('home') }}" class="dropdown-item">
                         {{-- <i class="feather icon-user text-muted"></i> &nbsp; Mis datos</a>
                     <div class="dropdown-divider"></div> --}}
                     <a href="{{ route('logout') }}" class="dropdown-item">

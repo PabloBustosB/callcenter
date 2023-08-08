@@ -61,11 +61,11 @@ class BurbujaMensaje extends Component
         if ($this->msg != null) {
             array_push($this->list, array('user', $this->msg, date('d-m-Y h:i:s'),1));
             $response = $this->asistente->consultar_ia($this->msg);
-            $this->conversacion->guardar_chat($this->idusuario, $this->msg, date('Y-m-d'),$response[2]);
+            $this->conversacion->guardar_chat($this->idusuario, $this->msg, date('Y-m-d'),($response[2]+1)/2);
             array_push($this->list, array('bot', $response[0], date('d-m-Y h:i:s'),1));
             array_push($this->list, array('bot', $response[1], date('d-m-Y h:i:s'),0));
             $this->conversacion->guardar_chat('Asistente-Virtual',$response[1], date('Y-m-d'),0);
-            array_push($this->list, array('bot', $response[2], date('d-m-Y h:i:s'),0));
+            array_push($this->list, array('bot', ($response[2]+1)/2, date('d-m-Y h:i:s'),0));
             
             if ($response[0] == 'SoporteOrdenTrabajo') {
                 $this->interaccion->editar_interaccion("Pidio Soporte Tecnico",2);

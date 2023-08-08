@@ -17,7 +17,7 @@ class ChatSeeder extends Seeder
     public function run()
     {
         // Crea registros de ejemplo en la tabla "chat" utilizando el método DB::create
-        Chats::create([
+        /*Chats::create([
             'emisor' => 'Rosalyn Conroy',
             'mensaje' => 'Hola, ¿cómo estás?',
             'fecha' => '2023-08-05',
@@ -47,6 +47,6 @@ class ChatSeeder extends Seeder
             'fecha' => '2023-08-05',
             'accion' => 'recibido',
             'id_interaccion' => 39,
-        ]);
+        ]);*/
     }
 }

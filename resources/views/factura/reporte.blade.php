@@ -7,7 +7,9 @@
 
 </head>
 <body>
+    @extends('layouts.app')
 
+    @section('content')
 <div class="container"
     <div class="d-flex align-items-center vh-100">
             <div class="container mt-5">
@@ -17,14 +19,14 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="desde">Desde:</label>
-                                <input type="date" class="form-control" id="desde" name="desde">
+                                <input type="date" class="form-control" id="desde" name="desde" value="2023-01-01">
 
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="hasta">Hasta:</label>
-                                <input type="date" class="form-control" id="hasta" name="hasta">
+                                <input type="date" class="form-control" id="hasta" name="hasta" value="2023-12-01">
 
                             </div>
                         </div>
@@ -81,7 +83,7 @@
                 data: {
                     labels: tipoPlan,
                     datasets: [{
-                        label: 'Monto Total por Plan',
+                        label: 'Monto Total Recaudado por Plan en Bolivianos',
                         data: montoTotal,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -167,7 +169,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 
-
+@endsection
 </body>
 </html>
 

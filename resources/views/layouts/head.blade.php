@@ -51,8 +51,6 @@
       <link rel="stylesheet" href="{{ asset('homes/css/owl.carousel.min.css') }}">
       <link rel="stylesoeet" href="{{ asset('homes/css/owl.theme.default.min.css') }}"> --}}
 
-
-
 <style>
     .container {
         max-width: 1170px;

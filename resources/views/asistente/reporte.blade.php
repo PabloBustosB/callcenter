@@ -13,13 +13,16 @@
     </style>
 </head>
 <body>
+    @extends('layouts.app')
+
+    @section('content')
     <div class="container mt-4">
         <h1>Reporte de Interacciones</h1>
         <form class="form-inline" method="get" action="{{ route('procesar.reporte') }}">
             <div class="row">
                 <div class="col-auto">
                     <label for="ano">Seleccione el año:</label>
-                    <input type="text" class="form-control" id="ano" name="ano" required>
+                    <input type="text" class="form-control"  name="ano" readonly value="2023">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-warning mt-4">Consultar</button>
@@ -158,7 +161,7 @@
         });
 </script>
 
-
+@endsection
 </body>
 </html>
 

@@ -9,15 +9,17 @@
 
     <style>
         .grafica-container {
-            background-color: rgba(12, 98, 10, 0.5); /* Color gris con transparencia */              }
+            background-color: rgba(255, 246, 186, 0.5); /* Color gris con transparencia */              }
         .numeros{
-            background-color: rgba(12, 98, 88, 0.5);
+            background-color: rgba(255, 246, 186, 0.5);
         }
 
     </style>
 </head>
 <body>
+    @extends('layouts.app')
 
+    @section('content')
 <div class="container"
     <div class="d-flex align-items-center vh-100">
             <div class="container mt-5">
@@ -27,14 +29,14 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="desde">Desde:</label>
-                                <input type="date" class="form-control" id="desde" name="desde">
+                                <input type="date" class="form-control" id="desde" name="desde" value="2023-01-01">
 
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="hasta">Hasta:</label>
-                                <input type="date" class="form-control" id="hasta" name="hasta">
+                                <input type="date" class="form-control" id="hasta" name="hasta" value="2023-09-01">
 
                             </div>
                         </div>
@@ -125,7 +127,7 @@
             data: {
                 labels: nombres,
                 datasets: [{
-                    label: 'Contador',
+                    label: 'Trabajos Asignados',
                     data: contadores,
                     backgroundColor: 'rgba(20, 200, 52, 0.8)',
                     borderColor: 'rgba(20, 100, 200, 1)',
@@ -306,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-
-</body>
-</html>
+@endsection
+{{-- </body>
+</html> --}}
 

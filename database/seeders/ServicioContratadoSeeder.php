@@ -16,7 +16,7 @@ class ServicioContratadoSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) { // Cambia 10 al número de tuplas que desees
+        for ($i = 1; $i <= 5; $i++) { // Cambia 10 al número de tuplas que desees
             $idPlanInternet = null;
             $idPlanTvcable = null;
             $idPlanLlamada = null;
@@ -26,16 +26,16 @@ class ServicioContratadoSeeder extends Seeder
 
             switch ($rand) {
                 case 1:
-                    $idPlanInternet = rand(1, 3);
+                    $idPlanInternet = rand(2, 4);
                     break;
                 case 2:
-                    $idPlanTvcable = rand(1, 3);
+                    $idPlanTvcable = rand(2, 4);
                     break;
                 case 3:
-                    $idPlanLlamada = rand(1, 3);
+                    $idPlanLlamada = rand(2, 4);
                     break;
                 case 4:
-                    $idComboPromo = rand(1, 3);
+                    $idComboPromo = rand(2, 4);
                     break;
             }
 

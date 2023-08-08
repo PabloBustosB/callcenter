@@ -17,14 +17,20 @@ class FacturaSeeder extends Seeder
     {
         Factura::create([
             'fecha' => '2023-02-12',
-            'monto' => 229,
-            'id_servicio_contratado' => 1,
+            'monto' => 169,
+            'id_servicio_contratado' => 2,
         ]);
 
         Factura::create([
             'fecha' => '2023-02-28',
-            'monto' => 1500,
-            'id_servicio_contratado' => 2,
+            'monto' => 160,
+            'id_servicio_contratado' => 3,
+        ]);
+
+        Factura::create([
+            'fecha' => '2023-02-28',
+            'monto' => 200,
+            'id_servicio_contratado' => 6,
         ]);
     }
 }

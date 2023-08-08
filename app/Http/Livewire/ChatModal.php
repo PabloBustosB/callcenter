@@ -19,7 +19,7 @@ class ChatModal extends Component
         $this->selectedSatisfaccionId = $satisfaccionId;
         /* dd($this->selectedSatisfaccionId); */
         $this->chats = Chats::where('id_interaccion', $this->selectedSatisfaccionId)->get();
-
+        // $this->showModal = false;
     }
 
     public function openModal()

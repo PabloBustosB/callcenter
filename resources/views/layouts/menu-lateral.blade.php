@@ -70,12 +70,33 @@
                 <div>Combos promocionales</div>
             </a>
         </li>
-        <li class="sidenav-item active">
-            <a href="" class="sidenav-link">
-                <i class="sidenav-icon feather icon-pie-chart"></i>
-                <div>Ordenes de trabajo</div>
+        <li class="sidenav-item">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon feather icon-box"></i>
+                <div>Reportes</div>
             </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item active">
+                    <a href="{{route('procesar.formulario')}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-pie-chart"></i>
+                        <div>Reporte Ordenes de trabajo</div>
+                    </a>
+                </li>
+                <li class="sidenav-item active">
+                    <a href="{{route('procesar.factura')}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-pie-chart"></i>
+                        <div>Reporte Ingresos por Servicio</div>
+                    </a>
+                </li>
+                <li class="sidenav-item active">
+                    <a href="{{route('procesar.reporte')}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-pie-chart"></i>
+                        <div>Reporte Interacciones por Año</div>
+                    </a>
+                </li>
+            </ul>
         </li>
+
         @endif
         
         {{-- <li class="sidenav-item active">

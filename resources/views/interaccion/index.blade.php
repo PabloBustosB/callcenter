@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-
-
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -48,7 +46,6 @@
                                         <td>{{ $satisfaccion->nombre }}</td>
                                         <td>
                                            @livewire('chat-modal', ['satisfaccionId' => $satisfaccion->id])
-
                                         </td>
                                     </tr>
                                     @endforeach

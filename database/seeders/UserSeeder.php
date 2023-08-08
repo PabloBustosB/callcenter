@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
+        $faker->addProvider(new \Faker\Provider\es_ES\Person($faker));
 
         for ($i = 1; $i <= 10; $i++) {
             $username = $faker->userName;
@@ -24,7 +25,7 @@ class UserSeeder extends Seeder
             $address = $faker->address;
             $address = substr($address,0, 50); // Aseguramos que address tengo maximo 50 caracteres
             User::create([
-                'nombre' => $faker->name,
+                'nombre' => $faker->unique()->name,
                 'cedula' => $faker->numerify('########'), // 8 dígitos aleatorios
                 'direccion' => $address,
                 'telefono' => $faker->numerify('#########'), // 9 dígitos aleatorios

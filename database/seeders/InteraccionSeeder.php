@@ -18,12 +18,12 @@ class InteraccionSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         for ($i = 1; $i <= 10; $i++) {
-            $fecha = $faker->dateTimeBetween('2023-07-01', '2023-07-31')->format('Y-m-d');
+            $fecha = $faker->dateTimeBetween('2023-08-09', '2023-08-31')->format('Y-m-d');
             Interaccion::create([
                 'fecha' => $fecha,
                 'descripcion' => $faker->paragraph(3),
                 'id_tipo_servicio_tecnico' => $faker->numberBetween(1, 3), // Considerando que tienes 3 tipos de servicio técnico
-                'id_usuario' => $faker->numberBetween(4, 13), // Considerando que tienes usuarios registrados desde el ID 3 al 18
+                'id_usuario' => $faker->numberBetween(3, 13), // Considerando que tienes usuarios registrados desde el ID 3 al 18
             ]);
         }
     }
