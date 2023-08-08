@@ -1,8 +1,14 @@
 <?php
-
+use Livewire\Livewire;
 use App\Http\Controllers\AsistenteController;
+use App\Http\Controllers\OrdenTrabajoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\InteraccionController;
+use App\Http\Controllers\FacturaController;
+use App\Http\Livewire\ChatModal;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +48,15 @@ Route::resource('tipo-servicios-tecnicos', App\Http\Controllers\TipoServiciosTec
 Route::get('/reporte/ordenSoporte',[App\Http\Controllers\InteraccionController::class,'pdf'])->name('reporte.orden_soporte' );
 
 Route::view('/prueba', 'asistente.pdf_soporte_internet')->name('prueba');
+
+Route::get('/consultar-ordenes', [OrdenTrabajoController::class, 'consultarOrdenesPorFecha'])->name('procesar.formulario');
+
+Route::get('/consultar-interacciones', [InteraccionController::class, 'reporteInteraccion'])->name('procesar.reporte');
+
+Route::get('/consultar-factura', [FacturaController::class, 'reporteFactura'])->name('procesar.factura');
+
+Route::get('/interacciones', [InteraccionController::class, 'index'])->name('interacciones.index');
+
+Route::get('/chat-modal', ChatModal::class);
+
+

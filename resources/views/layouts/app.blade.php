@@ -2,6 +2,7 @@
 <html lang="en" class="material-style layout-fixed">
 <head>
     @include('layouts.head')
+    @livewireStyles
 </head>
 <body>
     <div class="page-loader">

@@ -1,0 +1,101 @@
+//CREAMOS UNA VISTA PARA UNIR LAS DOS TABLAS QUE NECESITAMOS PARA REALIZAR LAS
+//CONSULTAS PARA REALIZAR UN REPORTE DE LAS ORDENES DE TRABAJO QUE TIENE UN TECNICO
+CREATE VIEW ordenTecnico AS
+SELECT ot.id, ot.problema, ot.estado, ot.fecha_visita, te.nombre
+FROM ordenTrabajo AS ot
+INNER JOIN tecnicos AS te ON ot.id_tecnico=te.id;
+
+//CONSULTA QUE NOS VA SERVIR PARA VER LAS ORDENES DE TRABAJO EN UN RANGO
+SELECT* FROM ordenTecnico WHERE fecha_visita between '2023-07-01' and '2023-07-31';
+
+//CONSULTA QUE NOS DIRA EL NUMERO DE ORDENES DE TRABAJO QUE TENEMOS EN ESE RANGO DE MESES O MES
+SELECT count(id) FROM ordenTecnico WHERE fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
+
+//CONSULTA QUE NOS DA EL NUMERO DE ORDENES DE TRABAJO QUE SE HAN COMPLETADO EN ESE RANGO DE MESES O MES
+SELECT count(id) FROM ordenTecnico WHERE estado='completado' AND fecha_visita BETWEEN '2023-07-01' AND '2023-07-31';
+
+//VER A LOS TECNICOS CUANTAS ORDENES DE TRABAJO TIENEN PENDIENTES
+//PODEMOS CAMBIAR EL ESTADO VAR SABER CUANTAS YA ESTAN EN PROCESO
+//CUANTAS YA ESTAN TERMINADAS ESTO POR TECNICO estado={completado,en progreso, pendiente}
+SELECT count(estado) AS contador, nombre FROM ordenTecnico WHERE estado='pendiente' and fecha_visita between '2023-0
+7-01' and '2023-07-31' group by nombre;
+
+select count(estado) as contar, nombre, estado
+from ordenTecnico
+where fecha_visita between '2023-07-01' and '2023-07-31' group by nombre;
+
+select count(estado) as contador, nombre
+FROM ordenTecnico
+WHERE fecha_visita between '2023-07-01' and '2023-07-31' group by nombre;
+
+//VER EL NUMERO DE ESTADOS DE LAS ORDENES DE TRABAJO
+SELECT COUNT(estado) AS contador, estado, nombre \
+FROM ordenTecnico \
+WHERE fecha_visita BETWEEN '2023-07-01' AND '2023-07-31' GROUP BY nombre, estado \
+---------------------------------------------------------------------------------
+-------------SEGUNDA VISTA-------------------------------------------------------
+---------------------------------------------------------------------------------
+//CREAR VISTA PARA SABER EL NUMERO DE TIPO DE SERVICIOS TENCINOS OCURRIERON EN UN
+//DETERMINADO PERIODO DE TIEMPO
+CREATE VIEW interaccionServicioTecnico AS \
+SELECT inte.id, inte.fecha, ts.nombre_servicio \
+FROM interaccion AS inte \
+INNER JOIN tipo_servicios_tecnicos AS ts ON inte.id_tipo_servicio_tecnico=ts.id;
+
+//CANTIDAD TOTAL DEL INTERACCIONES TOMA TODA LA TABLA
+select count(*) from interaccionServicioTecnico;
+//CANTIDAD POR TIPO DE SERVICIOS TOTAL SIN FECHA TOMA TODA LA TABLA
+select count(nombre_servicio) AS cantidad,nombre_servicio from interaccionServicioTecnico group by nombre_servicio;
+//CANTIDAD DE INTERACCIONES POR UN RANGO DE FECHA
+select count(nombre_servicio), nombre_servicio from interaccionServicioTecnico where fecha between '2023-
+07-01' and '2023-07-31' group by nombre_servicio;
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+//CONSULTA PARA CAPTURAR LOS TIPOS DE SERVICIOS EN ESTE CASO LAS INSTALACIONES,
+QUE SE VEN EN LAS INTERACCIONES Y QUE ESTAS INTERACCIONES GENERAN UNA ORDEN DE TRABAJO
+SELECT
+    ot.id AS orden_trabajo_id,
+    ot.descripcion AS orden_trabajo_descripcion,
+    i.id AS interaccion_id,
+    i.descripcion AS interaccion_descripcion,
+    t.id AS tipo_servicio_id,
+    t.nombre_servicio AS tipo_servicio_nombre
+FROM
+    ordentrabajo ot
+INNER JOIN
+    interaccion i ON ot.id_interaccion = i.id
+INNER JOIN
+    tipo_servicios_tecnicos t ON i.id_tipo_servicio_tecnico = t.id
+WHERE
+    t.nombre_servicio = 'Instalacion';
+
+-------------------------------------------------------------
+----------------------Tercer vista---------------------------
+-------------------------------------------------------------
+CREATE VIEW vista_reporte_montos_fecha AS
+SELECT
+    CASE
+        WHEN sc.id_plan_internet IS NOT NULL THEN 'Internet'
+        WHEN sc.id_plan_tvcable IS NOT NULL THEN 'TV Cable'
+        WHEN sc.id_plan_llamada IS NOT NULL THEN 'Llamada'
+        WHEN sc.id_combo_promo IS NOT NULL THEN 'Combo Promo'
+    END AS tipo_plan,
+    SUM(f.monto) AS monto_total,
+    f.fecha AS fecha_factura
+FROM
+    servicio_contratado sc
+JOIN
+    factura f ON sc.id = f.id_servicio_contratado
+GROUP BY
+    tipo_plan, fecha_factura;
+
+
+------------------------------------------------------------
+-------------------------Cuarta vista-----------------------
+------------------------------------------------------------
+CREATE VIEW satisfaccionUsuario AS
+SELECT i.id, i.fecha, i.descripcion, u.nombre \
+FROM interaccion i \
+INNER JOIN users u ON i.id_usuario=u.id WHERE u.tipo='usuario';

@@ -8,9 +8,19 @@ use App\Models\OrdenTrabajo;
 use App\Models\User;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
+use App\Http\Livewire\ChatModal; // Importa el componente Livewire
 
 class InteraccionController extends Controller
 {
+    
+    public function index(){
+        $satisfacciones = DB::table('satisfaccionUsuario')->orderBy('id')->get();
+        return view('interaccion.index', compact('satisfacciones'));
+
+    }
+
     public function crear_interaccion($fecha,$id_user)
     {
         Interaccion::create([
@@ -21,6 +31,8 @@ class InteraccionController extends Controller
         ]);
         // return redirect()->route('asistente.index');
     }
+
+
 
     public function editar_interaccion($descripcion,$tipo_servicio){
         $interaccion = Interaccion::find(Interaccion::max('id'));
@@ -39,5 +51,21 @@ class InteraccionController extends Controller
         $pdf = PDF::loadView('asistente.pdf_soporte_internet',['interacciones' =>$interacciones]);
         return $pdf->stream();
         // return $pdf->download();
+    }
+
+    public function reporteInteraccion(Request $request)
+    {
+        // Obtener el año del formulario
+        $ano = $request->input('ano');
+
+        // Consulta para obtener los datos filtrados por el año
+        $datos = DB::table('interaccionServicioTecnico')
+            ->selectRaw("MONTHNAME(fecha) AS mes, nombre_servicio, COUNT(*) AS cantidad")
+            ->whereYear('fecha', $ano)
+            ->groupByRaw("MONTH(fecha), nombre_servicio")
+            ->get();
+
+        // Pasar los datos y el año a la vista 'reporte.blade.php'
+        return view('asistente.reporte', compact('datos', 'ano'));
     }
 }
