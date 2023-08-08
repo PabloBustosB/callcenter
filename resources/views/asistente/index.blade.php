@@ -4,7 +4,7 @@
     <div id="warning">
         {{ $idusuario = Auth::user()->id }}
         {{ $usuario = Auth::user()->nombre }}
-        <h1 style="font-weight:500;">Speech Recognition Speech SDK cargando...</h1>
+        <h1 style="font-weight:500;">Cargando Speech Recognition Speech SDK...</h1>
     </div>
     <h3 class=" text-center">Bienvenido a Nuestro Asistente Virtual</h3>
     <div class="messaging">

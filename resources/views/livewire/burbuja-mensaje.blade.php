@@ -21,9 +21,12 @@
                             @endif
                             @if ($elem[3] == 3)
                                 <div class="row">
-                                    <img src="{{ asset('homes/images/promo1.jpg') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/promo2.jpg') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/promo3.jpg') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/promo1.jpg') }}"
+                                        style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/promo2.jpg') }}"
+                                        style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/promo3.jpg') }}"
+                                        style="width: 33%; height: 250px;">
                                 </div>
                             @endif
                             @if ($elem[3] == 4)
@@ -61,7 +64,7 @@
     </div>
     <div class="type_msg" id="content">
         <div class="input_msg_write">
-            <input type="text" class="write_msg" id="phraseDiv" wire:model="msg" placeholder="Escriba un mensaje" />
+            <input type="text" class="write_msg" id="phraseDiv" wire:model="msg" placeholder="Escriba un mensaje" autofocus/>
             <button class="msg_send_btn" id="startRecognizeOnceAsyncButton" type="button">
                 <i class="fa fa-microphone" aria-hidden="true"></i>
             </button>

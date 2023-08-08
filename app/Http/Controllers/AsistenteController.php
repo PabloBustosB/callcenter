@@ -15,13 +15,11 @@ class AsistenteController extends Controller
         $this->dialogflowService = new DialogflowService();
     }
 
-    public function chat($texto)
+    public function consultar_ia($texto)
     {
         // $sessionId = mt_rand(100000000,999999999);
         $sessionId = 123456789;
-
         $response = $this->dialogflowService->detectIntent($sessionId, $texto);
-
         // Realiza alguna acción con la respuesta de Dialogflow
         return $response;
     }

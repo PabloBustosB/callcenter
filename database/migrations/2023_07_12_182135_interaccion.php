@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('interaccion', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable(); // % satisfaccion
             $table->unsignedBigInteger('id_tipo_servicio_tecnico')->nullable();
             $table->unsignedBigInteger('id_usuario')->nullable();
 

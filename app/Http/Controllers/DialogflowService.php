@@ -37,8 +37,9 @@ class DialogflowService
         $queryResult = $response->getQueryResult();
         $intentDisplayName = $queryResult->getIntent()->getDisplayName();
         $respuesta = $queryResult->getFulfillmentText();
+        $sentiment = $queryResult->getSentimentAnalysisResult()->getQueryTextSentiment()->getScore();
         
-        $array_response = [$intentDisplayName,$respuesta];
+        $array_response = [$intentDisplayName,$respuesta,$sentiment];
         return $array_response;
     }
 }
