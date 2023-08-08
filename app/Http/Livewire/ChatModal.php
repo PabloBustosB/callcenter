@@ -8,26 +8,35 @@ use Livewire\WithFileUploads;
 
 class ChatModal extends Component
 {
-    use WithFileUploads;
-    public $satisfaccionId;
+    public $showModal = false;
+    public $selectedSatisfaccionId;
     public $chats;
 
-    protected $listeners = ['mostrarChats'];
+    protected $listeners = ['openModal'];
 
-    public function mostrarChats($id)
+    public function mount($satisfaccionId)
     {
-        $this->satisfaccionId = $id;
-        $this->cargarChats();
-        $this->dispatchBrowserEvent('abrirModal'); // Emitir evento para abrir el modal
+        $this->selectedSatisfaccionId = $satisfaccionId;
+        /* dd($this->selectedSatisfaccionId); */
+        $this->chats = Chats::where('id_interaccion', $this->selectedSatisfaccionId)->get();
+
     }
 
-    public function cargarChats()
+    public function openModal()
     {
-        $this->chats = DB::table('chat')->where('id_interaccion', $this->satisfaccionId)->get();
+
+        $this->showModal = true;
+        /*dd($this->chats); */
+    }
+
+    public function closeModal()
+    {
+        $this->showModal = false;
     }
 
     public function render()
     {
+        /* dd($this->chats); */
         return view('livewire.chat-modal');
     }
 }

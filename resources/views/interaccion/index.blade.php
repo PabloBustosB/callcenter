@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
 
+
+@section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -46,9 +47,8 @@
                                         <td style="white-space: pre-line;">{{ $satisfaccion->descripcion }}</td>
                                         <td>{{ $satisfaccion->nombre }}</td>
                                         <td>
-                                            <button data-toggle="modal" data-target="#modalChat" wire:click="mostrarChats({{ $satisfaccion->id }})" class="btn btn-sm btn-primary">
-            <i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}
-        </button>
+                                           @livewire('chat-modal', ['satisfaccionId' => $satisfaccion->id])
+
                                         </td>
                                     </tr>
                                     @endforeach
@@ -60,11 +60,6 @@
             </div>
         </div>
     </div>
-@livewire('chat-modal')
+
 @endsection
-
-
-
-
-
 
