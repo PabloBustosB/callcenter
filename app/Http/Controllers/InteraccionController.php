@@ -14,14 +14,14 @@ use App\Http\Livewire\ChatModal; // Importa el componente Livewire
 
 class InteraccionController extends Controller
 {
-    
-    public function index(){
+
+    public function index()
+    {
         $satisfacciones = DB::table('satisfaccionUsuario')->orderBy('id')->get();
         return view('interaccion.index', compact('satisfacciones'));
-
     }
 
-    public function crear_interaccion($fecha,$id_user)
+    public function crear_interaccion($fecha, $id_user)
     {
         Interaccion::create([
             'fecha' => $fecha,
@@ -34,21 +34,25 @@ class InteraccionController extends Controller
 
 
 
-    public function editar_interaccion($descripcion,$tipo_servicio){
+    public function editar_interaccion($descripcion, $tipo_servicio)
+    {
         $interaccion = Interaccion::find(Interaccion::max('id'));
-
+        $abc = $descripcion;
+        $consulta = "SELECT AVG(porcentaje)*100 as porcentaje FROM `chat` WHERE id_interaccion=? and emisor != 'Asistente-Virtual'";
+        $porcentaje = DB::selectOne($consulta, [Interaccion::max('id')]);
         if ($interaccion) {
-            $interaccion->descripcion = $descripcion;
+            $interaccion->descripcion = $porcentaje->porcentaje .' %';
             $interaccion->id_tipo_servicio_tecnico = $tipo_servicio;
             $interaccion->save();
         }
     }
 
-    public function pdf(){
+    public function pdf()
+    {
         $fechaBusqueda = Carbon::parse(date('Y-m-d'));
-        $interacciones = Interaccion::whereDate('fecha', $fechaBusqueda)->with('usuario','tipo_servicio')->get();
+        $interacciones = Interaccion::whereDate('fecha', $fechaBusqueda)->with('usuario', 'tipo_servicio')->get();
         // return view('asistente.pdf_soporte_internet',compact('interacciones'));
-        $pdf = PDF::loadView('asistente.pdf_soporte_internet',['interacciones' =>$interacciones]);
+        $pdf = PDF::loadView('asistente.pdf_soporte_internet', ['interacciones' => $interacciones]);
         return $pdf->stream();
         // return $pdf->download();
     }
