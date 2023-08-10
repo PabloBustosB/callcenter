@@ -2,48 +2,69 @@
 <html lang="en">
 
 <head>
-    <title>Call Center</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="description"
-        content="Empire Bootstrap admin template made using Bootstrap 4, it has tons of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
-    <meta name="keywords"
-        content="Empire, bootstrap admin template, bootstrap admin panel, bootstrap 4 admin template, admin template">
-    <meta name="author" content="Srthemesvilla" />
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-
-    <!-- Icon fonts -->
-    <link rel="stylesheet" href="{{ public_path('assets/fonts/fontawesome.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ public_path('assets/fonts/feather.css') }}" type="text/css">
-
-    <!-- Core stylesheets -->
-    <link rel="stylesheet" href="{{ public_path('assets/css/bootstrap-material.css') }}">
-    <link rel="stylesheet" href="{{ public_path('assets/css/shreerang-material.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ public_path('assets/css/uikit.css') }}" type="text/css">
-
-    <!-- Libs -->
-    <link rel="stylesheet" href="{{ public_path('assets/libs/perfect-scrollbar/perfect-scrollbar.css') }}"
-        type="text/css">
+    
 </head>
 
 <body>
-    <h1> Contrato de Instalación </h1>
+    <div class="container" style="display: flex;justify-content: center;align-items: center;">
+        {{-- <img src="{{ asset('assets/img/logo.png') }}" alt="img"> --}}
+        <h1> Empresa de Telefonia </h1>
+        
+    </div>
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;">
+    <h3> Visita tecnica</h3>
+    </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
+        
+            <table style="display: flex;
+            justify-content: center;
+            align-items: center;">
                 <tbody>
-                    <th>Cliente:</th>
-                    <th></th>
-                    <th>Juan Peres</th>
+                    <tr style="margin-bottom: 10px;">
+                        <th style="
+                        padding: 12px;
+                        text-align: left;">Cliente:</th>
+                        <th ></th>
+                        <th>Juan Peres</th>
+                    </tr>
+                    <tr></tr>
+                    <tr style="margin-bottom: 10px;">
+                        <th style="
+                        padding: 12px;
+                        text-align: left;">Tipo de servicio:</th>
+                        <th ></th>
+                        <th>Juan Peres</th>
+                    </tr>
+                    <tr style="margin-bottom: 10px;">
+                        <th style="
+                        padding: 12px;
+                        text-align: left;">Descripcion del problema:</th>
+                        <th ></th>
+                        <th>Juan Peres</th>
+                    </tr>
+                    <tr style="margin-bottom: 10px;">
+                        <th style="
+                        padding: 12px;
+                        text-align: left;">Tecnico encargado:</th>
+                        <th ></th>
+                        <th>Juan Peres</th>
+                    </tr>
+                    <tr style="margin-bottom: 10px;">
+                        <th style="
+                        padding: 12px;
+                        text-align: left;">Domicilio:</th>
+                        <th ></th>
+                        <th>Juan Peres</th>
+                    </tr>
+                    <tr style="margin-bottom: 10px;">
+                        <th style="
+                        padding: 12px;
+                        text-align: left;">Numero de Celular:</th>
+                        <th ></th>
+                        <th>Juan Peres</th>
+                    </tr>
                     {{-- @foreach ($interacciones as $interaccion)
                         <tr>
                             <td>{{ $interaccion->id }}</td>
@@ -55,7 +76,7 @@
                     @endforeach --}}
                 </tbody>
             </table>
-        </div>
+        
     </div>
 </body>
 

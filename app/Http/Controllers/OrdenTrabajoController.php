@@ -157,7 +157,7 @@ class OrdenTrabajoController extends Controller
             'fecha_visita' => Carbon::now()->addDay()->toDateString(),
             'problema' => $problema,
             'resultado' => null,
-            'estado' => 'en espera',
+            'estado' => 'pendiente',
             'descripcion' => null,
             'fecha_hora_visita_llegada' => Carbon::now()->addDay()->toDateString(),
             'fecha_hora_visita_salida' => null,

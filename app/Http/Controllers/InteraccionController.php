@@ -32,7 +32,10 @@ class InteraccionController extends Controller
         // return redirect()->route('asistente.index');
     }
 
-
+    public function cerrar_chat(){
+        sleep(5);
+        return redirect()->route('home');
+    }
 
     public function editar_interaccion($descripcion, $tipo_servicio)
     {
@@ -49,12 +52,13 @@ class InteraccionController extends Controller
 
     public function pdf()
     {
-        $fechaBusqueda = Carbon::parse(date('Y-m-d'));
-        $interacciones = Interaccion::whereDate('fecha', $fechaBusqueda)->with('usuario', 'tipo_servicio')->get();
-        // return view('asistente.pdf_soporte_internet',compact('interacciones'));
-        $pdf = PDF::loadView('asistente.pdf_soporte_internet', ['interacciones' => $interacciones]);
+        $interacciones = Interaccion::where('id', 113)->with('usuario', 'tipo_servicio')->get();
+        $pdf = PDF::loadView('asistente.pdf_soporte_internet');
+        $pdf->render();
+        // $pdf = $pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
-        // return $pdf->download();
+        // return $pdf->download('orden-de-Visita.pdf');
+        return view('asistente.pdf_soporte_internet');
     }
 
     public function reporteInteraccion(Request $request)

@@ -38,8 +38,6 @@
                                         
 										<th>Nombre Servicio</th>
 										<th>Descripcion</th>
-										<th>Estado</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -50,8 +48,6 @@
                                             
 											<td>{{ $tipoServiciosTecnico->nombre_servicio }}</td>
 											<td>{{ $tipoServiciosTecnico->descripcion }}</td>
-											<td>{{ $tipoServiciosTecnico->estado }}</td>
-
                                             <td>
                                                 <form action="{{ route('tipo-servicios-tecnicos.destroy',$tipoServiciosTecnico->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('tipo-servicios-tecnicos.show',$tipoServiciosTecnico->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>

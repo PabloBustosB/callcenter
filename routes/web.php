@@ -45,9 +45,10 @@ Route::resource('tipo-servicios-tecnicos', App\Http\Controllers\TipoServiciosTec
 
 // Route::view('/prueba', 'asistente.prueba')->name('prueba');
 
-Route::get('/reporte/ordenSoporte',[App\Http\Controllers\InteraccionController::class,'pdf'])->name('reporte.orden_soporte' );
+Route::get('/ordenServicio/pdf',[App\Http\Controllers\InteraccionController::class,'pdf'])->name('ordenServicio.pdf' );
 
-Route::view('/prueba', 'asistente.pdf_soporte_internet')->name('prueba');
+// Route::view('/prueba', 'asistente.pdf_soporte_internet')->name('prueba');
+// Route::get('/generar_pdf', 'InteraccionController@pdf');
 
 Route::get('/consultar-ordenes', [OrdenTrabajoController::class, 'consultarOrdenesPorFecha'])->name('procesar.formulario');
 
