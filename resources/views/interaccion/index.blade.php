@@ -11,19 +11,8 @@
                             <span id="card_title">
                                 {{ __('Interaccion y Chat') }}
                             </span>
-
-                             <div class="float-right">
-                                <a href="{{ route('tecnicos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Agregar chat') }}
-                                </a>
-                              </div>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
 
                     <div class="card-body">
                         <div class="table-responsive">
@@ -45,7 +34,7 @@
                                         <td style="white-space: pre-line;">{{ $satisfaccion->descripcion }}</td>
                                         <td>{{ $satisfaccion->nombre }}</td>
                                         <td>
-                                           @livewire('chat-modal', ['satisfaccionId' => $satisfaccion->id])
+                                            <a class="btn btn-sm btn-primary " href="{{ route('interacciones.show', $satisfaccion->id ) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
                                         </td>
                                     </tr>
                                     @endforeach

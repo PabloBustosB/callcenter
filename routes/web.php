@@ -4,6 +4,7 @@ use App\Http\Controllers\AsistenteController;
 use App\Http\Controllers\OrdenTrabajoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InteraccionController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Livewire\ChatModal;
@@ -57,7 +58,6 @@ Route::get('/consultar-interacciones', [InteraccionController::class, 'reporteIn
 Route::get('/consultar-factura', [FacturaController::class, 'reporteFactura'])->name('procesar.factura');
 
 Route::get('/interacciones', [InteraccionController::class, 'index'])->name('interacciones.index');
-
-Route::get('/chat-modal', ChatModal::class);
+Route::get('/chat/{id}', [ChatController::class, 'get_chats'])->name('interacciones.show');
 
 

@@ -26,8 +26,10 @@ class ChatController extends Controller
         ]);
     }
 
-    public function get_chats($id_interaccion) {
-        $chats = Chat::find($id_interaccion);
-        return $chats;
+    public function get_chats(Request $request, $id_interaccion) {
+        // $chats = Chat::find($id_interaccion);
+        $chats = Chat::where('id_interaccion', $id_interaccion)->get();
+        // return $chats;C
+        return view('interaccion.show', compact('chats'));
     }
 }

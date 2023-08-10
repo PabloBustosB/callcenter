@@ -46,6 +46,12 @@
                     <div>Tipo de Servicio Tecnico</div>
                 </a>
             </li>
+            <li class="sidenav-item active">
+                <a href="{{ route('interacciones.index') }}" class="sidenav-link">
+                    <i class="sidenav-icon feather icon-check"></i>
+                    <div>Interacciones</div>
+                </a>
+            </li>
             <li class="sidenav-item">
                 <a href="javascript:" class="sidenav-link sidenav-toggle">
                     <i class="sidenav-icon feather icon-play"></i>
