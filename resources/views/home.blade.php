@@ -34,7 +34,7 @@
                     </div>
                     <br><br>
                     <div class="container">
-                        <h1 class="fashion_taital">Planes de Internet + Tv Cable</h1>
+                        <h1 class="fashion_taital">Planes de Internet</h1>
                         <div class="fashion_section_2">
                             <div class="row">
                                 <div class="col-lg-4 col-sm-4">
@@ -83,6 +83,34 @@
                                 <div class="col-lg-4 col-sm-4">
                                     <div class="box_main">
                                         <div class="tshirt_img"><img src="{{ asset('homes/images/pc3.png') }}"
+                                                style="width: 80%; height: 300px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="container">
+                        <h1 class="fashion_taital">Planes de tv Cable</h1>
+                        <div class="fashion_section_2">
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                        <div class="tshirt_img">
+                                            <img src="{{ asset('homes/images/ptv1.png') }}"
+                                                style="width: 80%; height: 300px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                        <div class="tshirt_img"><img src="{{ asset('homes/images/ptv2.png') }}"
+                                                style="width: 80%; height: 300px;"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                        <div class="tshirt_img"><img src="{{ asset('homes/images/ptv3.png') }}"
                                                 style="width: 80%; height: 300px;"></div>
                                     </div>
                                 </div>
