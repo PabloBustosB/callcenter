@@ -598,8 +598,8 @@ a:hover {
 .tshirt_img {
     width: 100%;
     text-align: center;
-    margin: 50px 0px;
-    min-height: 370px;
+    margin: 10px 0px;
+    min-height: 120px;
 }
 
 .btn_main {

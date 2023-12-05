@@ -12,11 +12,12 @@
                                 {{ __('Tecnico') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('tecnicos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Agregar nuevo') }}
+                            <div class="float-right">
+                                <a href="{{ route('tecnicos.create') }}" class="btn btn-primary btn-sm float-right"
+                                    data-placement="left">
+                                    {{ __('Agregar nuevo') }}
                                 </a>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -31,8 +32,8 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-										<th>Nombre</th>
-										<th>Especialidad</th>
+                                        <th>Nombre</th>
+                                        <th>Especialidad</th>
 
                                         <th></th>
                                     </tr>
@@ -41,17 +42,22 @@
                                     @foreach ($tecnicos as $tecnico)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $tecnico->nombre }}</td>
-											<td>{{ $tecnico->especialidad }}</td>
+
+                                            <td>{{ $tecnico->nombre }}</td>
+                                            <td>{{ $tecnico->especialidad }}</td>
 
                                             <td>
-                                                <form action="{{ route('tecnicos.destroy',$tecnico->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('tecnicos.show',$tecnico->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('tecnicos.edit',$tecnico->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                <form action="{{ route('tecnicos.destroy', $tecnico->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('tecnicos.show', $tecnico->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('tecnicos.edit', $tecnico->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

@@ -27,9 +27,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($satisfacciones as $satisfaccion)
+                                    @foreach ($satisfacciones as $key => $satisfaccion)
+                                    @php
+                                        $contador = $key + 1;
+                                    @endphp
                                     <tr>
-                                        <td>{{ $satisfaccion->id }}</td>
+                                        <td>{{ $contador }}</td>
                                         <td>{{ $satisfaccion->fecha }}</td>
                                         <td style="white-space: pre-line;">{{ $satisfaccion->descripcion }}</td>
                                         <td>{{ $satisfaccion->nombre }}</td>
