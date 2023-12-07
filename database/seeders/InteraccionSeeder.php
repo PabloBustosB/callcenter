@@ -23,7 +23,7 @@ class InteraccionSeeder extends Seeder
                 'fecha' => $fecha,
                 'descripcion' => $faker->paragraph(3),
                 'id_tipo_servicio_tecnico' => $faker->numberBetween(1, 3), // Considerando que tienes 3 tipos de servicio técnico
-                'id_usuario' => $faker->numberBetween(3, 13), // Considerando que tienes usuarios registrados desde el ID 3 al 18
+                'id_usuario' => $faker->numberBetween(2, 11), // Considerando que tienes usuarios registrados desde el ID 2 al 11
             ]);
         }
     }

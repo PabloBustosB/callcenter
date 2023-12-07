@@ -112,7 +112,12 @@
                 </ul>
             </li>
         @endif
-
+        <li class="sidenav-item active">
+            <a href="{{ route('tecnico.ordenesTrabajo') }}" class="sidenav-link">
+                <i class="sidenav-icon feather icon-build"></i>
+                <div>Ordenes de trabajo del tecnico</div>
+            </a>
+        </li>
         {{-- <li class="sidenav-item active">
             <a href="" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>

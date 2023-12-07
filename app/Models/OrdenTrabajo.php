@@ -12,7 +12,7 @@ class OrdenTrabajo extends Model
     protected $fillable = [
         'fecha_visita', 'problema', 'resultado', 'estado',
         'descripcion', 'fecha_hora_visita_llegada', 'fecha_hora_visita_salida',
-        'id_tecnico', 'id_interaccion'
+        'longitud','latitud','id_tecnico', 'id_interaccion'
     ];
 
     public function tecnico()

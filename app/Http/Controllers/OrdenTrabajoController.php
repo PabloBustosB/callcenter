@@ -19,7 +19,9 @@ class OrdenTrabajoController extends Controller
      */
     public function index()
     {
-        //
+        $id_tecnico = 3;
+        $ordenesTrabajo = OrdenTrabajo::where('id_tecnico', $id_tecnico)->get();
+        return view('tecnico.ordenesTrabajo',compact('ordenesTrabajo'));
     }
 
     /**
@@ -72,9 +74,19 @@ class OrdenTrabajoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $ordenTrabajo = OrdenTrabajo::find(OrdenTrabajo::max('id'));
+        if ($ordenTrabajo){
+            $ordenTrabajo->update([
+                'longitud' => $request->longitud,
+                'latitud' => $request->latitud,
+            ]);
+            session()->flash('success', 'Ubicación guardada satisfactoriamente');
+        }else{
+            session()->flash('error', 'No se guarado la Ubicacion');
+        }
+        return back();
     }
 
     /**
@@ -152,7 +164,7 @@ class OrdenTrabajoController extends Controller
         /*      */
     }
     public function guardar_orden_trabajo($problema)
-    { 
+    {
         OrdenTrabajo::create([
             'fecha_visita' => Carbon::now()->addDay()->toDateString(),
             'problema' => $problema,

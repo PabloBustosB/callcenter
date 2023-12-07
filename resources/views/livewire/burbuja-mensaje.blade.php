@@ -1,4 +1,14 @@
 <div>
+   @if (session('success'))
+        <x-alert type="success" :dismissible="true">
+            {{ session('success') }}
+        </x-alert>
+    @endif
+    @if (session('error'))
+        <x-alert type="danger" :dimissible="true">
+            {{ session('error') }}
+        </x-alert>
+    @endif
     <div class="msg_history">
         @foreach ($list as $elem)
             @if ($elem[0] == 'bot')
@@ -71,9 +81,37 @@
             <button class="msg_send_btn" type="button" wire:click="enviarChat">
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
             </button>
+            <!-- Boton Modal -->
+            <button class="msg_send_btn" type="button" data-toggle="modal" data-target="#ubicacionModal">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+            </button>
+            <!-- Modal -->
+	    <div class="modal fade" id="ubicacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Seleccionar Ubicación</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Mapa y formulario van aquí -->
+                        <div id="map"></div>
+                        <form method="POST" action="{{route('ordenTrabajo.update')}}">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="longitud" id="longitud">
+                            <input type="hidden" name="latitud" id="latitud">
+                            <button type="submit" class="btn btn-primary">Guardar Ubicación</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
             <div id="text-button" class="mt-3" hidden>
                 <button class="btn btn-secondary" id="startSpeakTextAsyncButton">Reproducir texto</button>
             </div>
         </div>
     </div>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>

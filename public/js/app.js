@@ -3024,6 +3024,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _microfono__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_microfono__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _audio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./audio */ "./resources/js/audio.js");
 /* harmony import */ var _audio__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_audio__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ubicacion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ubicacion */ "./resources/js/ubicacion.js");
+/* harmony import */ var _ubicacion__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_ubicacion__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -3149,6 +3152,42 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('content').style.display = 'block';
     document.getElementById('warning').style.display = 'none';
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/ubicacion.js":
+/*!***********************************!*\
+  !*** ./resources/js/ubicacion.js ***!
+  \***********************************/
+/***/ (() => {
+
+var map;
+var marker;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+      lat: -17.7862900,
+      lng: -63.1811700
+    },
+    zoom: 8
+  });
+  marker = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {
+      lat: -17.7862900,
+      lng: -63.1811700
+    }
+  });
+  google.maps.event.addListener(marker, 'dragend', function (event) {
+    document.getElementById('latitud').value = marker.getPosition().lat();
+    document.getElementById('longitud').value = marker.getPosition().lng();
+  });
+}
+document.addEventListener('DOMContentLoaded', function () {
+  initMap();
 });
 
 /***/ }),
