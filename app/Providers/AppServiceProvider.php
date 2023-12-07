@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('alert', \App\View\Components\Alert::class);
+        Blade::component('card-modal', \App\View\Components\CardModal::class);
         Schema::defaultStringLength(191);
     }
 }
