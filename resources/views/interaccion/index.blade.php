@@ -31,8 +31,9 @@
                                     @php
                                         $contador = $key + 1;
                                     @endphp
-                                    <tr>
+                                                                        <tr>
                                         <td>{{ $contador }}</td>
+                                        {{-- <td>{{ $satisfaccion->id }}</td> --}}
                                         <td>{{ $satisfaccion->fecha }}</td>
                                         <td style="white-space: pre-line;">{{ $satisfaccion->descripcion }}</td>
                                         <td>{{ $satisfaccion->nombre }}</td>

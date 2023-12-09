@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('emisor');
             $table->text('mensaje');
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->double('porcentaje',8,2);
             $table->unsignedBigInteger('id_interaccion')->nullable();
 

@@ -99,3 +99,10 @@ CREATE VIEW satisfaccionUsuario AS
 SELECT i.id, i.fecha, i.descripcion, u.nombre \
 FROM interaccion i \
 INNER JOIN users u ON i.id_usuario=u.id WHERE u.tipo='usuario';
+
+
+vista modificada por pablo
+
+Alter view view_listar_interacciones as SELECT `i`.`id` AS `id`, `i`.`fecha` AS `fecha`, `i`.`descripcion` AS `descripcion`, `u`.`nombre` AS `nombre`, `i`.`created_at`,   `i`.`updated_at` 
+FROM ((`interaccion` `i` join `users` `u` on(`i`.`id_usuario` = `u`.`id`)) join `chat` `ch` on(`i`.`id` = `ch`.`id_interaccion`)) 
+WHERE `u`.`tipo` = 'usuario' AND `i`.`descripcion` is not null AND `ch`.`id_interaccion` is not null;

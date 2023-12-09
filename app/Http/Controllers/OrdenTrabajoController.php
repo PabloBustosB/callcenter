@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ordentrabajo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\OrdenTrabajo; // Asegúrate de usar el modelo correspondiente a tus órdenes de trabajo
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\View; // Importa la clase View
 use App\Models\Interaccion;
-
-class OrdenTrabajoController extends Controller
+/**
+ * Class OrdentrabajoController
+ * @package App\Http\Controllers
+ */
+class OrdentrabajoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +22,11 @@ class OrdenTrabajoController extends Controller
      */
     public function index()
     {
-        //
+        $ordentrabajos = Ordentrabajo::paginate();
+        // $ordentrabajos = Ordentrabajo::where('id',3)->get();
+
+        return view('ordentrabajo.index', compact('ordentrabajos'))
+            ->with('i', (request()->input('page', 1) - 1) * $ordentrabajos->perPage());
     }
 
     /**
@@ -29,63 +36,80 @@ class OrdenTrabajoController extends Controller
      */
     public function create()
     {
-        //
+        $ordentrabajo = new Ordentrabajo();
+        return view('ordentrabajo.create', compact('ordentrabajo'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Ordentrabajo::$rules);
+
+        $ordentrabajo = Ordentrabajo::create($request->all());
+
+        return redirect()->route('ordentrabajos.index')
+            ->with('success', 'Ordentrabajo created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $ordentrabajo = Ordentrabajo::find($id);
+
+        return view('ordentrabajo.show', compact('ordentrabajo'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $ordentrabajo = Ordentrabajo::find($id);
+
+        return view('ordentrabajo.edit', compact('ordentrabajo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  Ordentrabajo $ordentrabajo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ordentrabajo $ordentrabajo)
     {
-        //
+        request()->validate(Ordentrabajo::$rules);
+
+        $ordentrabajo->update($request->all());
+
+        return redirect()->route('ordentrabajos.index')
+            ->with('success', 'Ordentrabajo updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        //
+        $ordentrabajo = Ordentrabajo::find($id)->delete();
+
+        return redirect()->route('ordentrabajos.index')
+            ->with('success', 'Ordentrabajo deleted successfully');
     }
 
     public function consultarOrdenesPorFecha(Request $request)
@@ -111,7 +135,7 @@ class OrdenTrabajoController extends Controller
         ->whereBetween('fecha_visita', [$desde, $hasta])
         ->first(); // Utilizamos first() para obtener solo el primer resultado
 
-        return view('ordenTrabajo.index', compact('ordenes', 'ordenesPorEstado', 'contadorOrdenes', 'desde', 'hasta'));
+        return view('ordenTrabajo.reporteOrdenTrabajo', compact('ordenes', 'ordenesPorEstado', 'contadorOrdenes', 'desde', 'hasta'));
     }
 
    public function reporteOrdenesPorFecha($desde, $hasta)
@@ -164,8 +188,5 @@ class OrdenTrabajoController extends Controller
             'id_tecnico' => 1,
             'id_interaccion' => Interaccion::max('id')
         ]);
-        // return redirect()->route('asistente.index');
     }
-
-
 }

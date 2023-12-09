@@ -17,7 +17,7 @@ class InteraccionController extends Controller
 
     public function index()
     {
-        $satisfacciones = DB::table('vista_listar_interacciones')->orderBy('id')->get();
+        $satisfacciones = DB::table('view_listar_interacciones')->groupBy('id')->orderBy('id')->get();
         return view('interaccion.index', compact('satisfacciones'));
     }
     //DELETE FROM `interaccion` WHERE descripcion = null;
@@ -31,7 +31,6 @@ class InteraccionController extends Controller
         ]);
         // return redirect()->route('asistente.index');
     }
-
     public function cerrar_chat(){
         sleep(5);
         return redirect()->route('home');

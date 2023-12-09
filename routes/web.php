@@ -60,4 +60,5 @@ Route::get('/consultar-factura', [FacturaController::class, 'reporteFactura'])->
 Route::get('/interacciones', [InteraccionController::class, 'index'])->name('interacciones.index');
 Route::get('/chat/{id}', [ChatController::class, 'get_chats'])->name('interacciones.show');
 
+Route::resource('ordentrabajo', App\Http\Controllers\OrdenTrabajoController::class);
 

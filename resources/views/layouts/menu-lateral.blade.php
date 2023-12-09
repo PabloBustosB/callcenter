@@ -21,6 +21,7 @@
                 <div>Dashboards</div>
             </a>
         </li> --}}
+        @if (Auth::user()->tipo == 'admin' || Auth::user()->tipo == 'usuario')
         <li class="sidenav-item active">
             <a href="{{ route('home') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-home"></i>
@@ -33,6 +34,15 @@
                 <div>Asistente Virtual</div>
             </a>
         </li>
+        @endif
+        @if (Auth::user()->tipo == 'tecnico')
+        <li class="sidenav-item active">
+            <a href="{{ route('ordentrabajo.index') }}" class="sidenav-link">
+                <i class="sidenav-icon feather icon-check"></i>
+                <div>Ordenes de Servicio Tecnico</div>
+            </a>
+        </li>
+        @endif
         @if (Auth::user()->tipo == 'admin')
             <li class="sidenav-item active">
                 <a href="{{ route('tecnicos.index') }}" class="sidenav-link">

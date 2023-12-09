@@ -9,7 +9,6 @@
                             <img src="https://ptetutorials.com/images/user-profile.png" alt="img">
                         @endif
                     </div>
-
                     <div class="received_msg">
                         <div class="received_withd_msg">
                             @if ($elem[3] == 2)

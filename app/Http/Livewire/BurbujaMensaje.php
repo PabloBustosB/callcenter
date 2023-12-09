@@ -43,7 +43,8 @@ class BurbujaMensaje extends Component
         // Accion 2 = Mostrar imagenes de los paquetes de internet,
         // Accion 3 = Mostrar imagenes de los paquetes Promocionales,
         // Accion 4 = Mostrar imagenes de los paquetes de llamadas,
-        // Accion 5 = Mostrar imagenes de los paquetes de tv cable
+        // Accion 5 = Mostrar imagenes de los paquetes de tv cable,
+        // Acction 6 = Mostrar modal gps
         $this->msg = "";
         $this->idusuario = $idusuario;
     }
@@ -65,9 +66,9 @@ class BurbujaMensaje extends Component
             if ($porcentaje >= 0) {
                 $porcentaje = ($porcentaje + 1) / 2;
             }
-            $this->conversacion->guardar_chat($this->idusuario, $this->msg, date('Y-m-d'), $porcentaje);
+            $this->conversacion->guardar_chat($this->idusuario, $this->msg, date('Y-m-d H:i:s'), $porcentaje);
             array_push($this->list, array('bot', $response[1], date('d-m-Y h:i:s'), 1));
-            $this->conversacion->guardar_chat('Asistente-Virtual', $response[1], date('Y-m-d'), 0);
+            $this->conversacion->guardar_chat('Asistente-Virtual', $response[1], date('Y-m-d H:i:s'), 0);
             // Registrar Soporte
             if ($response[0] == 'SoporteInternet - yes' || $response[0] == 'SoporteRouterConfigLTE' || $response[0] == 'SoporteRouterConfigTPLINK' || $response[0] == 'SoporteRouterLTE' || $response[0] == 'SoporteRouterTPLink' || $response[0] == 'SoporteInternet - no - yes') {
                 array_push($this->list, array('bot', "Gracias por tu tiempo, puedes volver con otra consulta.", date('d-m-Y h:i:s'), 0));
