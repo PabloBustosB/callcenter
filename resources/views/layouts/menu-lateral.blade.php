@@ -37,10 +37,17 @@
         </li>
         @endif
         @if (Auth::user()->tipo == 'tecnico')
-        <li class="sidenav-item active">
+        {{-- <li class="sidenav-item active">
             <a href="{{ route('ordentrabajo.index') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-check"></i>
                 <div>Ordenes de Servicio Tecnico</div>
+            </a>
+        </li> --}}
+
+        <li class="sidenav-item active">
+            <a href="{{ route('tecnico.ordenesTrabajo') }}" class="sidenav-link">
+                <i class="sidenav-icon feather icon-check"></i>
+                <div>Ordenes de trabajo del tecnico</div>
             </a>
         </li>
         @endif
@@ -123,12 +130,7 @@
                 </ul>
             </li>
         @endif
-        <li class="sidenav-item active">
-            <a href="{{ route('tecnico.ordenesTrabajo') }}" class="sidenav-link">
-                <i class="sidenav-icon feather icon-build"></i>
-                <div>Ordenes de trabajo del tecnico</div>
-            </a>
-        </li>
+        
         {{-- <li class="sidenav-item active">
             <a href="" class="sidenav-link">
                 <i class="sidenav-icon feather icon-pie-chart"></i>

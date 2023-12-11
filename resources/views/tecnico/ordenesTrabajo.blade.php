@@ -4,7 +4,6 @@
 <h1>Ubicaciones</h1>
 <div class="row row-cols-1 row-cols-md-2">
         @foreach ($ordenesTrabajo as $orden)
-
                 <x-card-modal
                     :id="$orden->id"
                     :visita="$orden->fecha_visita"

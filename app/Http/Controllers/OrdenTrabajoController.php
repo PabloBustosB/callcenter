@@ -25,15 +25,15 @@ class OrdentrabajoController extends Controller
     {
         // $ordentrabajos = Ordentrabajo::paginate();
         if (Auth::user()->id == 33){
-            $ordentrabajos = Ordentrabajo::where('id_tecnico',1)->get();
+            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',1)->get();
         }
         if (Auth::user()->id == 34){
-            $ordentrabajos = Ordentrabajo::where('id_tecnico',2)->get();
+            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',2)->get();
         }
         if (Auth::user()->id == 35){
-            $ordentrabajos = Ordentrabajo::where('id_tecnico',3)->get();
+            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',3)->get();
         }
-        return view('ordentrabajo.index', compact('ordentrabajos'));
+        return view('tecnico.ordenesTrabajo', compact('ordenesTrabajo'));
     }
 
     /**
