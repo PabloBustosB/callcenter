@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use App\Models\Chats;
+use App\Models\Chat;
 use Livewire\WithFileUploads;
 
 class ChatModal extends Component
@@ -18,7 +18,7 @@ class ChatModal extends Component
     {
         $this->selectedSatisfaccionId = $satisfaccionId;
         /* dd($this->selectedSatisfaccionId); */
-        $this->chats = Chats::where('id_interaccion', $this->selectedSatisfaccionId)->get();
+        $this->chats = Chat::where('id_interaccion', $this->selectedSatisfaccionId)->get();
         // $this->showModal = false;
     }
 
