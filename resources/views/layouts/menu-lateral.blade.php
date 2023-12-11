@@ -21,13 +21,14 @@
                 <div>Dashboards</div>
             </a>
         </li> --}}
-        @if (Auth::user()->tipo == 'admin' || Auth::user()->tipo == 'usuario')
         <li class="sidenav-item active">
             <a href="{{ route('home') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-home"></i>
                 <div>Home</div>
             </a>
         </li>
+        @if (Auth::user()->tipo == 'usuario')
+        
         <li class="sidenav-item active">
             <a href="{{ route('asistente.index') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-user"></i>

@@ -42,8 +42,9 @@ class InteraccionController extends Controller
         $abc = $descripcion;
         $consulta = "SELECT AVG(porcentaje)*100 as porcentaje FROM `chat` WHERE id_interaccion=? and emisor != 'Asistente-Virtual'";
         $porcentaje = DB::selectOne($consulta, [Interaccion::max('id')]);
+        $percen = number_format(floatval($porcentaje->porcentaje), 2);
         if ($interaccion) {
-            $interaccion->descripcion = $porcentaje->porcentaje .' %';
+            $interaccion->descripcion = $percen.' %';
             $interaccion->id_tipo_servicio_tecnico = $tipo_servicio;
             $interaccion->save();
         }

@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',50);
             $table->string('especialidad',50);
+
+            // $table->unsignedBigInteger('id_usuario')->nullable();
+            // $table->foreign('id_usuario')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
@@ -28,6 +32,9 @@ return new class extends Migration
      */
     public function down()
     {
+        // Schema::table('interaccion', function (Blueprint $table) {
+        //     $table->dropForeign(['id_usuario']);
+        // });
         Schema::dropIfExists('tecnicos');
     }
 };

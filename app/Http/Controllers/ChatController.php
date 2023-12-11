@@ -36,7 +36,7 @@ class ChatController extends Controller
         $datosUsuario = $datosUsuario[0];
         $fechaInicio = Carbon::parse($datosUsuario->inicio);
         $fechaFin = Carbon::parse($datosUsuario->final);
-
+        
         // Calcula la diferencia en minutos
         $segundosDiferencia = $fechaInicio->diffInSeconds($fechaFin);
         $minutosDiferencia = 0;

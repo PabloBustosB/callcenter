@@ -20,27 +20,29 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-										<th>Fecha</th>
-										<th>%Satisfaccion</th>
+                                        <th>Fecha</th>
+                                        <th>%Satisfaccion</th>
                                         <th>Nombre Cliente</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($satisfacciones as $key => $satisfaccion)
-                                    @php
-                                        $contador = $key + 1;
-                                    @endphp
-                                                                        <tr>
-                                        <td>{{ $contador }}</td>
-                                        {{-- <td>{{ $satisfaccion->id }}</td> --}}
-                                        <td>{{ $satisfaccion->fecha }}</td>
-                                        <td style="white-space: pre-line;">{{ $satisfaccion->descripcion }}</td>
-                                        <td>{{ $satisfaccion->nombre }}</td>
-                                        <td>
-                                            <a class="btn btn-sm btn-primary " href="{{ route('interacciones.show', $satisfaccion->id ) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
-                                        </td>
-                                    </tr>
+                                        @php
+                                            $contador = $key + 1;
+                                        @endphp
+                                        <tr>
+                                            <td>{{ $contador }}</td>
+                                            {{-- <td>{{ $satisfaccion->id }}</td> --}}
+                                            <td>{{ $satisfaccion->fecha }}</td>
+                                            <td style="white-space: pre-line;">{{ $satisfaccion->descripcion }}</td>
+                                            <td>{{ $satisfaccion->nombre }}</td>
+                                            <td>
+                                                <a class="btn btn-sm btn-primary "
+                                                    href="{{ route('interacciones.show', $satisfaccion->id) }}"><i
+                                                        class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -50,6 +52,4 @@
             </div>
         </div>
     </div>
-
 @endsection
-

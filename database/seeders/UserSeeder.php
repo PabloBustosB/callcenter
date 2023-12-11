@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
                 'direccion' => $address,
                 'telefono' => $faker->numerify('#########'), // 9 dígitos aleatorios
                 'tipo' => $faker->randomElement(['usuario']),
-                'estado' => $faker->randomElement(['A', 'I']), // 'A' para activo, 'I' para inactivo
+                'estado' => $faker->randomElement(['a', 'i']), // 'A' para activo, 'I' para inactivo
                 'username' => $username,
                 'email' => $faker->unique()->safeEmail,
                 'password' => Hash::make('password123'), // Asignamos una contraseña común para todos los usuarios (se puede cambiar)

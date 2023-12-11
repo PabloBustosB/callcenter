@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ordentrabajo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -22,11 +23,17 @@ class OrdentrabajoController extends Controller
      */
     public function index()
     {
-        $ordentrabajos = Ordentrabajo::paginate();
-        // $ordentrabajos = Ordentrabajo::where('id',3)->get();
-
-        return view('ordentrabajo.index', compact('ordentrabajos'))
-            ->with('i', (request()->input('page', 1) - 1) * $ordentrabajos->perPage());
+        // $ordentrabajos = Ordentrabajo::paginate();
+        if (Auth::user()->id == 33){
+            $ordentrabajos = Ordentrabajo::where('id_tecnico',1)->get();
+        }
+        if (Auth::user()->id == 34){
+            $ordentrabajos = Ordentrabajo::where('id_tecnico',2)->get();
+        }
+        if (Auth::user()->id == 35){
+            $ordentrabajos = Ordentrabajo::where('id_tecnico',3)->get();
+        }
+        return view('ordentrabajo.index', compact('ordentrabajos'));
     }
 
     /**
