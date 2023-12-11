@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('ordentrabajo', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_visita');
-            $table->text('problema'); 
+            $table->text('problema');
             $table->text('resultado')->nullable();
             $table->string('estado');
             $table->text('descripcion'); // Solo es para Soporte
             $table->dateTime('fecha_hora_visita_llegada');
             $table->dateTime('fecha_hora_visita_salida');
+            $table->decimal('longitud',11,8)->nullable();
+            $table->decimal('latitud',10,8)->nullable();
             $table->unsignedBigInteger('id_tecnico')->nullable();
             $table->unsignedBigInteger('id_interaccion')->nullable();
 

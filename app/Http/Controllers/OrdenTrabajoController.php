@@ -55,12 +55,12 @@ class OrdentrabajoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Ordentrabajo::$rules);
+        // request()->validate(Ordentrabajo::$rules);
 
-        $ordentrabajo = Ordentrabajo::create($request->all());
+        // $ordentrabajo = Ordentrabajo::create($request->all());
 
-        return redirect()->route('ordentrabajos.index')
-            ->with('success', 'Ordentrabajo created successfully.');
+        // return redirect()->route('ordentrabajos.index')
+        //     ->with('success', 'Ordentrabajo created successfully.');
     }
 
     /**
@@ -96,14 +96,19 @@ class OrdentrabajoController extends Controller
      * @param  Ordentrabajo $ordentrabajo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ordentrabajo $ordentrabajo)
+    public function update(Request $request)
     {
-        request()->validate(Ordentrabajo::$rules);
-
-        $ordentrabajo->update($request->all());
-
-        return redirect()->route('ordentrabajos.index')
-            ->with('success', 'Ordentrabajo updated successfully');
+        $ordenTrabajo = OrdenTrabajo::find(OrdenTrabajo::max('id'));
+        if ($ordenTrabajo){
+            $ordenTrabajo->update([
+                'longitud' => $request->longitud,
+                'latitud' => $request->latitud,
+            ]);
+            session()->flash('success', 'Ubicación guardada satisfactoriamente');
+        }else{
+            session()->flash('error', 'No se guarado la Ubicacion');
+        }
+        return back();
     }
 
     /**
@@ -183,7 +188,7 @@ class OrdentrabajoController extends Controller
         /*      */
     }
     public function guardar_orden_trabajo($problema)
-    { 
+    {
         OrdenTrabajo::create([
             'fecha_visita' => Carbon::now()->addDay()->toDateString(),
             'problema' => $problema,

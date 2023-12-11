@@ -29,10 +29,10 @@ use Illuminate\Database\Eloquent\Model;
 class Ordentrabajo extends Model
 {
     protected $table = 'ordentrabajo';
-    static $rules = [
-		'fecha_visita' => 'required',
-		'problema' => 'required',
-		'estado' => 'required',
+    protected $fillable = [
+        'fecha_visita', 'problema', 'resultado', 'estado',
+        'descripcion', 'fecha_hora_visita_llegada', 'fecha_hora_visita_salida',
+        'longitud','latitud','id_tecnico', 'id_interaccion'
     ];
 
     protected $perPage = 20;
@@ -42,7 +42,7 @@ class Ordentrabajo extends Model
      *
      * @var array
      */
-    protected $fillable = ['fecha_visita','problema','resultado','estado','descripcion','fecha_hora_visita_llegada','fecha_hora_visita_salida','id_tecnico','id_interaccion'];
+    // protected $fillable = ['fecha_visita','problema','resultado','estado','descripcion','fecha_hora_visita_llegada','fecha_hora_visita_salida','id_tecnico','id_interaccion'];
 
 
     /**
