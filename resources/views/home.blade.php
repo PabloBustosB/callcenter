@@ -2,7 +2,7 @@
 @section('content')
 <!-- banner bg main start -->
 <div class="fashion_section">
-    {{Auth::user()->id}}
+    {{-- {{Auth::user()->direccion}} --}}
     <div id="main_slider" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

@@ -36,10 +36,9 @@ class InteraccionController extends Controller
         return redirect()->route('home');
     }
 
-    public function editar_interaccion($descripcion, $tipo_servicio)
+    public function editar_interaccion($tipo_servicio)
     {
         $interaccion = Interaccion::find(Interaccion::max('id'));
-        $abc = $descripcion;
         $consulta = "SELECT AVG(porcentaje)*100 as porcentaje FROM `chat` WHERE id_interaccion=? and emisor != 'Asistente-Virtual'";
         $porcentaje = DB::selectOne($consulta, [Interaccion::max('id')]);
         $percen = number_format(floatval($porcentaje->porcentaje), 2);

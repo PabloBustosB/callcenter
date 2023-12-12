@@ -1,6 +1,6 @@
 
     <div class="container">
-        <h1 class="fashion_taital">Nuestras promociones</h1>
+        <h1 class="fashion_taital">Nuestros combos promocionales</h1>
         <div class="fashion_section_2">
             <div class="row">
 

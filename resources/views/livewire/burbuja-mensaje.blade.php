@@ -1,5 +1,5 @@
 <div>
-   @if (session('success'))
+    @if (session('success'))
         <x-alert type="success" :dismissible="true">
             {{ session('success') }}
         </x-alert>
@@ -9,11 +9,10 @@
             {{ session('error') }}
         </x-alert>
     @endif
-    <div class="msg_history">
+    <div class="msg_history" id="bandeja-chat">
         @foreach ($list as $elem)
             @if ($elem[0] == 'bot')
                 <div class="incoming_msg">
-
                     <div class="incoming_msg_img">
                         @if ($elem[3] == 1)
                             <img src="https://ptetutorials.com/images/user-profile.png" alt="img">
@@ -23,10 +22,10 @@
                         <div class="received_withd_msg">
                             @if ($elem[3] == 2)
                                 <div class="row">
-                                    <img src="{{ asset('homes/images/pi1.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/pi2.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/pi3.png') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/internet/2.png') }}"
+                                        style="width: 100%; height: 450px;">
                                 </div>
+                                <br>
                             @endif
                             @if ($elem[3] == 3)
                                 <div class="row">
@@ -46,16 +45,34 @@
                                 </div>
                             @endif
                             @if ($elem[3] == 5)
-                                <div class="row">
-                                    <img src="{{ asset('homes/images/ptv1.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/ptv2.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/ptv3.png') }}" style="width: 33%; height: 250px;">
+                                <p>
+                                    {{ $elem[1] }}
+                                </p>
+                            @else
+                                <p>
+                                    {{ $elem[1] }}
+                                </p>
+                                <span class="time_date"> {{ $elem[2] }} </span>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Seleccionar Ubicación</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Mapa y formulario van aquí -->
+                                        <div id="map" style="height: 300px;"></div>
+                                        {{-- <form method="POST" action="{{ route('ordenTrabajo.update') }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="longitud" id="longitud">
+                                            <input type="hidden" name="latitud" id="latitud">
+                                            <button type="submit" class="btn btn-primary">Guardar Ubicación</button>
+                                        </form> --}}
+                                    </div>
                                 </div>
                             @endif
-                            <p>
-                                {{ $elem[1] }}
-                            </p>
-                            <span class="time_date"> {{ $elem[2] }} </span>
+                            @if ($elem[3] == 6)
+                                
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -70,47 +87,21 @@
                 </div>
             @endif
         @endforeach
+
     </div>
     <div class="type_msg" id="content">
         <div class="input_msg_write">
-            <input type="text" class="write_msg" id="phraseDiv" wire:model="msg" placeholder="Escriba un mensaje" autofocus/>
+            <input type="text" class="write_msg" id="phraseDiv" wire:model="msg" placeholder="Escriba un mensaje"
+                autofocus />
             <button class="msg_send_btn" id="startRecognizeOnceAsyncButton" type="button">
                 <i class="fa fa-microphone" aria-hidden="true"></i>
             </button>
             <button class="msg_send_btn" type="button" wire:click="enviarChat">
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
             </button>
-            <!-- Boton Modal -->
-            <button class="msg_send_btn" type="button" data-toggle="modal" data-target="#ubicacionModal">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </button>
-            <!-- Modal -->
-	    <div class="modal fade" id="ubicacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Seleccionar Ubicación</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Mapa y formulario van aquí -->
-                        <div id="map"></div>
-                        <form method="POST" action="{{route('ordenTrabajo.update')}}">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" name="longitud" id="longitud">
-                            <input type="hidden" name="latitud" id="latitud">
-                            <button type="submit" class="btn btn-primary">Guardar Ubicación</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
             <div id="text-button" class="mt-3" hidden>
                 <button class="btn btn-secondary" id="startSpeakTextAsyncButton">Reproducir texto</button>
             </div>
         </div>
     </div>
 </div>
-<script src="{{ asset('js/app.js') }}"></script>
