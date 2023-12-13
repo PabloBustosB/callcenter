@@ -8,6 +8,8 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\InteraccionController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Livewire\ChatModal;
+use App\Http\Livewire\MapaComponent;
+
 
 
 /*

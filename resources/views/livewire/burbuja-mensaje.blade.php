@@ -53,25 +53,10 @@
                                     {{ $elem[1] }}
                                 </p>
                                 <span class="time_date"> {{ $elem[2] }} </span>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="card-title">Seleccionar Ubicación</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <!-- Mapa y formulario van aquí -->
-                                        <div id="map" style="height: 300px;"></div>
-                                        {{-- <form method="POST" action="{{ route('ordenTrabajo.update') }}">
-                                            @csrf
-                                            @method('PUT')
-                                            <input type="hidden" name="longitud" id="longitud">
-                                            <input type="hidden" name="latitud" id="latitud">
-                                            <button type="submit" class="btn btn-primary">Guardar Ubicación</button>
-                                        </form> --}}
-                                    </div>
-                                </div>
+                                @livewire ('mapa-component')
                             @endif
                             @if ($elem[3] == 6)
-                                
+
                             @endif
                         </div>
                     </div>
