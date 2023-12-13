@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('plan_llamadas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',50);
             $table->string('minutos',50);
             $table->string('credito',10);
             $table->integer('cantidadmb');

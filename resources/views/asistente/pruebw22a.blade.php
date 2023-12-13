@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+    {{-- <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script> --}}
     <script src="{{ asset('js/app.js') }}"></script>
 
 @endsection

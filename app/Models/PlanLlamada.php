@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class PlanLlamada
  *
  * @property $id
+ * @property $nombre
  * @property $minutos
  * @property $credito
  * @property $cantidadmb
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
+ * @property CombosPromo[] $combosPromos
+ * @property ServicioContratado[] $servicioContratados
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -22,6 +25,7 @@ class PlanLlamada extends Model
 {
     
     static $rules = [
+		'nombre' => 'required',
 		'minutos' => 'required',
 		'credito' => 'required',
 		'cantidadmb' => 'required',
@@ -35,8 +39,24 @@ class PlanLlamada extends Model
      *
      * @var array
      */
-    protected $fillable = ['minutos','credito','cantidadmb','precio'];
+    protected $fillable = ['nombre','minutos','credito','cantidadmb','precio'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function combosPromos()
+    {
+        return $this->hasMany('App\Models\CombosPromo', 'id_plan_llamada', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function servicioContratados()
+    {
+        return $this->hasMany('App\Models\ServicioContratado', 'id_plan_llamada', 'id');
+    }
+    
 
 }

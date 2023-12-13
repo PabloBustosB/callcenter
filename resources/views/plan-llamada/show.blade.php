@@ -11,15 +11,21 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Plan Llamada</span>
+                            <span class="card-title">
+                                <h2> Plan de llamada</h2>
+                            </span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('plan-llamadas.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('plan-llamadas.index') }}"> {{ __('Atras') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
+                        <div class="form-group">
+                            <strong>Nombre:</strong>
+                            {{ $planLlamada->nombre }}
+                        </div>
                         <div class="form-group">
                             <strong>Minutos:</strong>
                             {{ $planLlamada->minutos }}

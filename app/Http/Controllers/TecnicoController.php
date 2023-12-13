@@ -48,7 +48,7 @@ class TecnicoController extends Controller
         $tecnico = Tecnico::create($request->all());
 
         return redirect()->route('tecnicos.index')
-            ->with('success', 'Tecnico created successfully.');
+            ->with('success', 'Tecnico agregado satisfactoriamente.');
     }
 
     /**
@@ -104,6 +104,6 @@ class TecnicoController extends Controller
         $tecnico = Tecnico::find($id)->delete();
 
         return redirect()->route('tecnicos.index')
-            ->with('success', 'Tecnico deleted successfully');
+            ->with('success', 'Tecnico eliminado satisfactoriamente');
     }
 }

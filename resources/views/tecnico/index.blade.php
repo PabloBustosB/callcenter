@@ -9,13 +9,13 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Tecnico') }}
+                                <h2>Lista de Tecnicos</h2>
                             </span>
 
                             <div class="float-right">
                                 <a href="{{ route('tecnicos.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    {{ __('Agregar nuevo') }}
+                                    {{ __('Agregar Nuevo') }}
                                 </a>
                             </div>
                         </div>

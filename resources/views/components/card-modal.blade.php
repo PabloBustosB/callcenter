@@ -27,7 +27,7 @@
 				                    var marker{{ $id }};
 				                    map = new google.maps.Map(document.getElementById('map{{$id}}'), {
                 			            center: {lat: {{ $latitud }}, lng:{{ $longitud }} },
-                			            zoom: 8
+                			            zoom: 16
             			            });
 
             			            marker{{$id}} = new google.maps.Marker({

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->text('problema');
             $table->text('resultado')->nullable();
             $table->string('estado');
-            $table->text('descripcion'); // Solo es para Soporte
+            $table->text('descripcion')->nullable(); // Solo es para Soporte
             $table->dateTime('fecha_hora_visita_llegada');
-            $table->dateTime('fecha_hora_visita_salida');
+            $table->dateTime('fecha_hora_visita_salida')->nullable();
             $table->decimal('longitud',11,8)->nullable();
             $table->decimal('latitud',10,8)->nullable();
             $table->unsignedBigInteger('id_tecnico')->nullable();

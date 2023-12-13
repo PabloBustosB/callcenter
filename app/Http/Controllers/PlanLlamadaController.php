@@ -48,7 +48,7 @@ class PlanLlamadaController extends Controller
         $planLlamada = PlanLlamada::create($request->all());
 
         return redirect()->route('plan-llamadas.index')
-            ->with('success', 'PlanLlamada created successfully.');
+            ->with('success', 'Plan de Llamada agregado correctamente.');
     }
 
     /**
@@ -91,7 +91,7 @@ class PlanLlamadaController extends Controller
         $planLlamada->update($request->all());
 
         return redirect()->route('plan-llamadas.index')
-            ->with('success', 'PlanLlamada actualizado exitosamente');
+            ->with('success', 'Plan de llamada actualizado satisfactoriamente');
     }
 
     /**
@@ -104,6 +104,6 @@ class PlanLlamadaController extends Controller
         $planLlamada = PlanLlamada::find($id)->delete();
 
         return redirect()->route('plan-llamadas.index')
-            ->with('success', 'PlanLlamada deleted successfully');
+            ->with('success', 'Plan de Llamada eliminado satisfactoriamente');
     }
 }

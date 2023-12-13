@@ -11,7 +11,6 @@
             {{ Form::text('especialidad', $tecnico->especialidad, ['class' => 'form-control' . ($errors->has('especialidad') ? ' is-invalid' : ''), 'placeholder' => 'Especialidad']) }}
             {!! $errors->first('especialidad', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Registrar') }}</button>

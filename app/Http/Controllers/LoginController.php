@@ -19,7 +19,7 @@ class LoginController extends Controller
         $user->tipo = 'usuario';
         $user->estado = 'a';
         $user->username = $request->username;
-        $user->email = $request->dir;
+        $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
         $user->save();

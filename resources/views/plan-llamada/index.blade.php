@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Plan Llamada') }}
+                                <h2>Listado de todos los planes de llamadas</h2>
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('plan-llamadas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Agregar nuevo') }}
+                                  {{ __('Crear nuevo plan') }}
                                 </a>
                               </div>
                         </div>
@@ -36,10 +36,11 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Minutos libres</th>
-										<th>Credito Bs.</th>
-										<th>Cantidad megas</th>
-										<th>Precio Bs.</th>
+										<th>Nombre</th>
+										<th>Minutos</th>
+										<th>Credito</th>
+										<th>Cantidadmb</th>
+										<th>Precio</th>
 
                                         <th></th>
                                     </tr>
@@ -49,6 +50,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $planLlamada->nombre }}</td>
 											<td>{{ $planLlamada->minutos }}</td>
 											<td>{{ $planLlamada->credito }}</td>
 											<td>{{ $planLlamada->cantidadmb }}</td>

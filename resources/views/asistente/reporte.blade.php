@@ -63,17 +63,17 @@
 
         // Filtrar los datos por tipo de servicio para cada mes
         var instalacionData = mesesUnicos.map(mes => {
-            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Instalacion');
+            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Instalación domiciliaria');
             return data ? data.cantidad : 0;
         });
 
         var solicitarInfoData = mesesUnicos.map(mes => {
-            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Solicitar Informacion');
+            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Soporte técnico brindado por asistente virtual');
             return data ? data.cantidad : 0;
         });
 
         var revisionEquiposData = mesesUnicos.map(mes => {
-            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Revision Equipos');
+            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Contratar un servicio');
             return data ? data.cantidad : 0;
         });
 
@@ -84,19 +84,19 @@
                 labels: mesesUnicos,
                 datasets: [
                     {
-                        label: 'Instalacion',
+                        label: 'Instalación domiciliaria',
                         data: instalacionData,
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     },
                     {
-                        label: 'Solicitar Informacion',
+                        label: 'Soporte técnico brindado por asistente virtual',
                         data: solicitarInfoData,
                         borderColor: 'rgb(54, 162, 235)',
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     },
                     {
-                        label: 'Revision Equipos',
+                        label: 'Contratar un servicio',
                         data: revisionEquiposData,
                         borderColor: 'rgb(75, 192, 192)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',

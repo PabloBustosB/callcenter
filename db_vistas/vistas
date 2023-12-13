@@ -53,7 +53,7 @@ select count(nombre_servicio), nombre_servicio from interaccionServicioTecnico w
 ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------
-//CONSULTA PARA CAPTURAR LOS TIPOS DE SERVICIOS EN ESTE CASO LAS INSTALACIONES,
+CONSULTA PARA CAPTURAR LOS TIPOS DE SERVICIOS EN ESTE CASO LAS INSTALACIONES,
 QUE SE VEN EN LAS INTERACCIONES Y QUE ESTAS INTERACCIONES GENERAN UNA ORDEN DE TRABAJO
 SELECT
     ot.id AS orden_trabajo_id,
@@ -103,6 +103,6 @@ INNER JOIN users u ON i.id_usuario=u.id WHERE u.tipo='usuario';
 
 vista modificada por pablo
 
-Alter view view_listar_interacciones as SELECT `i`.`id` AS `id`, `i`.`fecha` AS `fecha`, `i`.`descripcion` AS `descripcion`, `u`.`nombre` AS `nombre`, `i`.`created_at`,   `i`.`updated_at` 
+CREATE view view_listar_interacciones as SELECT `i`.`id` AS `id`, `i`.`fecha` AS `fecha`, `i`.`descripcion` AS `descripcion`, `u`.`nombre` AS `nombre`, `i`.`created_at` AS `inicio`,   `i`.`updated_at` AS `final` 
 FROM ((`interaccion` `i` join `users` `u` on(`i`.`id_usuario` = `u`.`id`)) join `chat` `ch` on(`i`.`id` = `ch`.`id_interaccion`)) 
 WHERE `u`.`tipo` = 'usuario' AND `i`.`descripcion` is not null AND `ch`.`id_interaccion` is not null;

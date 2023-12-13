@@ -83,23 +83,17 @@
                         </a>
                     </li>
                     <li class="sidenav-item active">
-                        <a href="{{ route('plan-tv-cables.index') }}" class="sidenav-link">
-                            <i class="sidenav-icon feather icon-tv"></i>
-                            <div>Plan de tv cable</div>
-                        </a>
-                    </li>
-                    <li class="sidenav-item active">
                         <a href="{{ route('plan-llamadas.index') }}" class="sidenav-link">
                             <i class="sidenav-icon feather icon-phone"></i>
                             <div>Planes de llamadas</div>
                         </a>
                     </li>
-                    <li class="sidenav-item active">
+                    {{-- <li class="sidenav-item active">
                         <a href="" class="sidenav-link">
                             <i class="sidenav-icon feather icon-shopping-cart"></i>
                             <div>Combos promocionales</div>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 

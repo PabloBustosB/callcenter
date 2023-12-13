@@ -52,7 +52,7 @@
       <link rel="stylesoeet" href="{{ asset('homes/css/owl.theme.default.min.css') }}"> --}}
 <!-- Mapa -->
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDhzY7jgByf0xUZrCF_2Oy8pgjmc-g_Bo&callback=console.debug&libraries=maps,marker&v=beta">
-w</script>
+</script>
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
     .container {

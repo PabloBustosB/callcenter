@@ -29,11 +29,11 @@
                             @endif
                             @if ($elem[3] == 3)
                                 <div class="row">
-                                    <img src="{{ asset('homes/images/promo1.jpg') }}"
+                                    <img src="{{ asset('homes/images/wow/2.png') }}"
                                         style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/promo2.jpg') }}"
+                                    <img src="{{ asset('homes/images/wow/3.png') }}"
                                         style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/promo3.jpg') }}"
+                                    <img src="{{ asset('homes/images/wow/4.png') }}"
                                         style="width: 33%; height: 250px;">
                                 </div>
                             @endif
@@ -44,6 +44,22 @@
                                     <img src="{{ asset('homes/images/pc3.png') }}" style="width: 33%; height: 250px;">
                                 </div>
                             @endif
+                            @if ($elem[3] == 7)
+                                <div class="row">
+                                    <img src="{{ asset('homes/images/images-soporte/modem-off.gif') }}"
+                                        style="width: 50%; height: 250px;">
+                                </div>
+                            @endif
+                            @if ($elem[3] == 6)
+                                <div id="map" style="height: 400px;"></div>
+                                <form method="POST" action="{{ route('ordenTrabajo.update') }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="text" hidden id="latitud" name="latitud">
+                                    <input type="text" hidden id="longitud" name="longitud">
+                                    <button type="submit" class="btn btn-primary">Realizar Solicitud</button>
+                                </form>
+                            @endif
                             @if ($elem[3] == 5)
                                 <p>
                                     {{ $elem[1] }}
@@ -53,25 +69,7 @@
                                     {{ $elem[1] }}
                                 </p>
                                 <span class="time_date"> {{ $elem[2] }} </span>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="card-title">Seleccionar Ubicación</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <!-- Mapa y formulario van aquí -->
-                                        <div id="map" style="height: 300px;"></div>
-                                        {{-- <form method="POST" action="{{ route('ordenTrabajo.update') }}">
-                                            @csrf
-                                            @method('PUT')
-                                            <input type="hidden" name="longitud" id="longitud">
-                                            <input type="hidden" name="latitud" id="latitud">
-                                            <button type="submit" class="btn btn-primary">Guardar Ubicación</button>
-                                        </form> --}}
-                                    </div>
-                                </div>
-                            @endif
-                            @if ($elem[3] == 6)
-                                
+                                {{-- @livewire ('mapa-component') --}}
                             @endif
                         </div>
                     </div>
@@ -87,7 +85,6 @@
                 </div>
             @endif
         @endforeach
-
     </div>
     <div class="type_msg" id="content">
         <div class="input_msg_write">

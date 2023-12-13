@@ -24,13 +24,13 @@ class OrdentrabajoController extends Controller
     public function index()
     {
         // $ordentrabajos = Ordentrabajo::paginate();
-        if (Auth::user()->id == 33){
+        if (Auth::user()->id == 3){
             $ordenesTrabajo = Ordentrabajo::where('id_tecnico',1)->get();
         }
-        if (Auth::user()->id == 34){
+        if (Auth::user()->id == 4){
             $ordenesTrabajo = Ordentrabajo::where('id_tecnico',2)->get();
         }
-        if (Auth::user()->id == 35){
+        if (Auth::user()->id == 5){
             $ordenesTrabajo = Ordentrabajo::where('id_tecnico',3)->get();
         }
         return view('tecnico.ordenesTrabajo', compact('ordenesTrabajo'));
@@ -53,16 +53,6 @@ class OrdentrabajoController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        // request()->validate(Ordentrabajo::$rules);
-
-        // $ordentrabajo = Ordentrabajo::create($request->all());
-
-        // return redirect()->route('ordentrabajos.index')
-        //     ->with('success', 'Ordentrabajo created successfully.');
-    }
-
     /**
      * Display the specified resource.
      *
@@ -101,12 +91,12 @@ class OrdentrabajoController extends Controller
         $ordenTrabajo = OrdenTrabajo::find(OrdenTrabajo::max('id'));
         if ($ordenTrabajo){
             $ordenTrabajo->update([
-                'longitud' => $request->longitud,
-                'latitud' => $request->latitud,
+                'longitud' => $request->longitud ?? '-17.783492',
+                'latitud' => $request->latitud ?? '-63.181465',
             ]);
-            session()->flash('success', 'Ubicación guardada satisfactoriamente');
+            session()->flash('success', 'Tu solicitud de contratacion de servicio fue registrada Exitosamente');
         }else{
-            session()->flash('error', 'No se guarado la Ubicacion');
+            session()->flash('error', 'Tu solicitud de contratacion de servicio NO fue registrada');
         }
         return back();
     }
@@ -189,6 +179,7 @@ class OrdentrabajoController extends Controller
     }
     public function guardar_orden_trabajo($problema)
     {
+
         OrdenTrabajo::create([
             'fecha_visita' => Carbon::now()->addDay()->toDateString(),
             'problema' => $problema,
@@ -197,7 +188,9 @@ class OrdentrabajoController extends Controller
             'descripcion' => null,
             'fecha_hora_visita_llegada' => Carbon::now()->addDay()->toDateString(),
             'fecha_hora_visita_salida' => null,
-            'id_tecnico' => 1,
+            'longitud' => 1,
+            'latitud' =>1,
+            'id_tecnico' => rand(1, 3),
             'id_interaccion' => Interaccion::max('id')
         ]);
     }
