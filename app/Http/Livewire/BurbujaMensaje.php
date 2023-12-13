@@ -92,30 +92,16 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "direccion domiciliaria: ". Auth::user()->direccion, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "numero de celular: ". Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "necesitamos tu GPs", date('d-m-Y H:i:s'), 5));
-                array_push($this->list, array('bot', "necesitamos tu GPs", date('d-m-Y H:i:s'), 6));
-                // array_push($this->list, array('bot', "Gracias por tu tiempo, puedes volver con otra consulta.", date('d-m-Y H:i:s'), 0));
+                // array_push($this->list, array('bot', "necesitamos tu GPs", date('d-m-Y H:i:s'), 6));
 
-                // $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Hogar WIFI Superior");
-                // $this->servicioContratado->registrar_servicio_contratado(3, null, null, null);
-                // $this->contrato->guardar_contrato($this->idusuario);
-                // array_push($this->list, array('bot', "Gracias por tu tiempo, puedes volver con otra consulta.", date('d-m-Y H:i:s'), 0));
-                // $this->interaccion->editar_interaccion("Contrato el plan Hogar WIFI Superior", 1);
+                $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Internet Estandar");
+                $this->servicioContratado->registrar_servicio_contratado(1, null, null, null);
+                $this->contrato->guardar_contrato($this->idusuario);
+                array_push($this->list, array('bot', "Ya registramos tu solicitud de contrato, nuestros tecnicos visitaran su domicilio para realizar la instalación.", date('d-m-Y H:i:s'), 0));
+                $this->interaccion->editar_interaccion(1);
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
 
             if ($response[0] == 'ContratarInternetIntermedio' || $response[0] == 'InfoContratarInternetIntermedio - yes') {
 
@@ -124,14 +110,6 @@ class BurbujaMensaje extends Component
                 $this->contrato->guardar_contrato($this->idusuario);
                 array_push($this->list, array('bot', "Gracias por tu tiempo, puedes volver con otra consulta.", date('d-m-Y H:i:s'), 0));
                 $this->interaccion->editar_interaccion("Contrato el plan Hogar WIFI Intermedio", 1);
-            }
-            if ($response[0] == 'ContratarInternetEsencial' || $response[0] == 'InfoContratarInternetEsencial - yes') {
-
-                $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Hogar WIFI Esencial");
-                $this->servicioContratado->registrar_servicio_contratado(1, null, null, null);
-                $this->contrato->guardar_contrato($this->idusuario);
-                array_push($this->list, array('bot', "Gracias por tu tiempo, puedes volver con otra consulta.", date('d-m-Y H:i:s'), 0));
-                $this->interaccion->editar_interaccion("Contrato el plan Hogar WIFI Esencial", 1);
             }
 
             // Registrar Soporte
