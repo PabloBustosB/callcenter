@@ -53,7 +53,7 @@
                                     {{ $elem[1] }}
                                 </p>
                                 <span class="time_date"> {{ $elem[2] }} </span>
-                                @livewire ('mapa-component')
+                                @livewire('mapa-component')
                             @endif
                             @if ($elem[3] == 6)
 

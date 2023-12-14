@@ -13,10 +13,4 @@ class MapaComponent extends Component
     {
         return view('livewire.mapa-component');
     }
-
-    public function updateCoordinates($coordinates)
-    {
-        $this->latitud = $coordinates['latitud'];
-        $this->longitud = $coordinates['longitud'];
-    }
 }

@@ -16,13 +16,24 @@ document.addEventListener('livewire:load', function () {
         });
 
         google.maps.event.addListener(marker, 'dragend', function(event) {
-            // Actualizar latitud y longitud en el componente de Livewire
+            var latitud = marker.getPosition().lat();
+            var longitud = marker.getPosition().lng();
+
             Livewire.emit('updateCoordinates', {
-                latitud: marker.getPosition().lat(),
-                longitud: marker.getPosition().lng()
+                latitud: latitud,
+                longitud: longitud
             });
         });
     }
 
     initMap();
+
+    Livewire.on('updateCoordinates', function (coordinates) {
+        document.getElementById('latitud').value = coordinates.latitud;
+        document.getElementById('longitud').value = coordinates.longitud;
+    });
+
+    Livewire.on('renderMap', function () {
+        initMap();
+    });
 });
