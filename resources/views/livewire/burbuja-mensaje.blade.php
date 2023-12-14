@@ -39,9 +39,9 @@
                             @endif
                             @if ($elem[3] == 4)
                                 <div class="row">
-                                    <img src="{{ asset('homes/images/pc1.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/pc2.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/pc3.png') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/Promos/1.png') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/Promos/2.png') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/Promos/3.png') }}" style="width: 33%; height: 250px;">
                                 </div>
                             @endif
                             @if ($elem[3] == 7)

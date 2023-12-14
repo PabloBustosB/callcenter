@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class ContratoController extends Controller
 {
-    public function guardar_contrato($id_usuario,$fecha_inicio,$plan)
+    public function guardar_contrato($id_usuario,$fecha_inicio,$precio)
     {
         $usuario = User::find($id_usuario);
         Contrato::create([
@@ -24,14 +24,9 @@ class ContratoController extends Controller
             'id_usuario' => $id_usuario
         ]);
         
-        // $monto = ServicioContratado::find(ServicioContratado::max('id'));
-        $consulta = "SELECT pi.precio FROM servicio_contratado as sc,planinternets as pi
-        where sc.id_plan_internet = pi.id AND sc.id=?;";
-        $monto = DB::selectOne($consulta,ServicioContratado::max('id') );
-
         Factura::create([
             'fecha' => $fecha_inicio,
-            'monto' => $monto,
+            'monto' => $precio,
             'id_servicio_contratado' => ServicioContratado::max('id'),
         ]);
     }

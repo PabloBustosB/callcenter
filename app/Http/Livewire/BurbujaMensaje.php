@@ -106,7 +106,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 1, null, null, null);
-                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'));
+                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),129);
                 $this->interaccion->editar_interaccion(1);
             }
 
@@ -120,7 +120,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 2, null, null, null);
-                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'));
+                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),139);
                 $this->interaccion->editar_interaccion(1);
             }
 
@@ -134,7 +134,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 3, null, null, null);
-                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'));
+                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),199);
                 $this->interaccion->editar_interaccion(1);
             }
 
@@ -148,7 +148,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 4, null, null, null);
-                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'));
+                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),249);
                 $this->interaccion->editar_interaccion(1);
             }
 
@@ -165,7 +165,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Direccion domiciliaria: " . Auth::user()->direccion, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 1);
-                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'));
+                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),99);
                 $this->interaccion->editar_interaccion(1);
             }
 
@@ -176,7 +176,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Direccion domiciliaria: " . Auth::user()->direccion, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 2);
-                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'));
+                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),149);
                 $this->interaccion->editar_interaccion(1);
             }
 
@@ -187,7 +187,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Direccion domiciliaria: " . Auth::user()->direccion, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 3);
-                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'));
+                $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),169);
                 $this->interaccion->editar_interaccion(1);
             }
 
