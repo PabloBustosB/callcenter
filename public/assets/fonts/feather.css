@@ -255,6 +255,8 @@
 
 .icon-menu:before { content: "\e88f"; }
 
+.icono-verde { color: green;}
+
 .icon-message-circle:before { content: "\e890"; }
 
 .icon-message-square:before { content: "\e891"; }

@@ -57,7 +57,7 @@
                                     @method('PUT')
                                     <input type="text" hidden id="latitud" name="latitud">
                                     <input type="text" hidden id="longitud" name="longitud">
-                                    <button type="submit" class="btn btn-primary">Realizar Solicitud</button>
+                                    <button type="submit" class="btn btn-success">Realizar Solicitud</button>
                                 </form>
                             @endif
                             @if ($elem[3] == 5)

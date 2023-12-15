@@ -30,7 +30,7 @@
             <div class="demo-navbar-user nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                     <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">@auth {{Auth::user()->nombre}} @endauth</span>
+                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0"><h4 class="">@auth {{Auth::user()->nombre}} @endauth</h4></span>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">

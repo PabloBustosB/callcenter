@@ -8,7 +8,8 @@
 <meta name="keywords"
     content="Empire, bootstrap admin template, bootstrap admin panel, bootstrap 4 admin template, admin template">
 <meta name="author" content="Srthemesvilla" />
-<link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">
+{{-- <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/icons.png') }}"> --}}
+<link rel="icon" type="image/png" href="{{ asset('assets/img/icons.png') }}">
 
 <!-- Google fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">

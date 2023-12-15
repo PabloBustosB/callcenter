@@ -76,7 +76,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Puedes guiarte con la siguiente imagen", date('d-m-Y H:i:s'), 7));
                 array_push($this->list, array('bot', 'Se solucionó tu problema?', date('d-m-Y H:i:s'), 0));
                 $this->conversacion->guardar_chat('Asistente-Virtual', $response[1], date('Y-m-d H:i:s'), 0);
-                $this->interaccion->editar_interaccion(3);
+                $this->interaccion->editar_interaccion(4);
             } else {
                 // Ver La intent
                 array_push($this->list, array('bot', $response[0], date('d-m-Y H:i:s'), 1));
@@ -87,12 +87,12 @@ class BurbujaMensaje extends Component
 
             // Solicitar informacion o contratar
             if ($response[0] == 'ContratarServicio') {
-                $this->interaccion->editar_interaccion(3);
+                $this->interaccion->editar_interaccion(1);
             }
 
             if ($response[0] == 'ContratarInternet') {
                 array_push($this->list, array('bot', "Te interesa algun paquete de internet que te ofrecemos?", date('d-m-Y H:i:s'), 2));
-                $this->interaccion->editar_interaccion(3);
+                $this->interaccion->editar_interaccion(2);
             }
 
             if ($response[0] == 'ContratarInternetPlanEstandar') {
@@ -107,7 +107,7 @@ class BurbujaMensaje extends Component
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 1, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),129);
-                $this->interaccion->editar_interaccion(1);
+                $this->interaccion->editar_interaccion(2);
             }
 
             if ($response[0] == 'ContratarInternetPlanAvanzado') {
@@ -121,7 +121,7 @@ class BurbujaMensaje extends Component
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 2, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),139);
-                $this->interaccion->editar_interaccion(1);
+                $this->interaccion->editar_interaccion(2);
             }
 
             if ($response[0] == 'ContratarInternetPlanExplora') {
@@ -135,7 +135,7 @@ class BurbujaMensaje extends Component
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 3, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),199);
-                $this->interaccion->editar_interaccion(1);
+                $this->interaccion->editar_interaccion(2);
             }
 
             if ($response[0] == 'ContratarInternetPlanLibre') {
@@ -149,7 +149,7 @@ class BurbujaMensaje extends Component
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 4, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),249);
-                $this->interaccion->editar_interaccion(1);
+                $this->interaccion->editar_interaccion(2);
             }
 
 
@@ -166,7 +166,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 1);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),99);
-                $this->interaccion->editar_interaccion(1);
+                $this->interaccion->editar_interaccion(3);
             }
 
             if ($response[0] == 'ContratarPlanLlamadasSimple') {
@@ -177,7 +177,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 2);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),149);
-                $this->interaccion->editar_interaccion(1);
+                $this->interaccion->editar_interaccion(3);
             }
 
             if ($response[0] == 'ContratarPlanLlamadasPlus') {
@@ -188,7 +188,7 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 3);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'),169);
-                $this->interaccion->editar_interaccion(1);
+                $this->interaccion->editar_interaccion(3);
             }
 
 
@@ -196,11 +196,11 @@ class BurbujaMensaje extends Component
 
             if ($response[0] == 'SoporteInternet - yes' || $response[0] == 'SoporteRouterConfigLTE' || $response[0] == 'SoporteRouterConfigTPLINK' || $response[0] == 'SoporteRouterLTE' || $response[0] == 'SoporteRouterTPLink' || $response[0] == 'SoporteInternet - no - yes') {
                 array_push($this->list, array('bot', "Gracias por tu tiempo, puedes volver con otra consulta.", date('d-m-Y h:i:s'), 0));
-                $this->interaccion->editar_interaccion("Pidio Soporte Tecnico", 4);
+                $this->interaccion->editar_interaccion(4);
             }
             if ($response[0] == 'SoporteOrdenTrabajo') {
                 array_push($this->list, array('bot', "Gracias por tu tiempo, puedes volver con otra consulta.", date('d-m-Y h:i:s'), 0));
-                $this->interaccion->editar_interaccion("Pidio Soporte Tecnico", 4);
+                $this->interaccion->editar_interaccion(4);
             }
             $this->msg = '';
         }

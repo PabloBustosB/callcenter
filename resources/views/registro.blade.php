@@ -14,7 +14,7 @@
     <meta name="keywords"
         content="Empire, bootstrap admin template, bootstrap admin panel, bootstrap 4 admin template, admin template">
     <meta name="author" content="Srthemesvilla" />
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/icons.png') }}">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -53,7 +53,7 @@
             <div class="d-flex justify-content-center align-items-center">
                 <div class="ui-w-60">
                     <div class="w-100 position-relative">
-                        <img src="assets/img/logo-dark.png" alt="Brand Logo" class="img-fluid">
+                        <img src="assets/img/viva.png" alt="Brand Logo" class="img-fluid">
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -90,10 +90,10 @@
                     <label class="form-label">Password:</label>
                     <input type="password" name="password" required class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block mt-4">Registrarse</button>
+                <button type="submit" class="btn btn-success btn-block mt-4">Registrarse</button>
             </form>
             <div class="text-center text-muted">
-                <p>Tienes cuenta? <a href="{{ route('login') }}"> Iniciar Sesion</a></p>
+                <p>Tienes cuenta? <a class="enlace" href="{{ route('login') }}"> Iniciar Sesion</a></p>
             </div>
         </div>
     </div>
