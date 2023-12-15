@@ -10,8 +10,9 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
+                        <h2>Listado de todos los planes de Internet</h2>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
+                            
                             <div class="float-right">
                                 <a href="{{ route('planinternets.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Nuevo Plan de Internet') }}
@@ -54,7 +55,7 @@
                                                     <a class="btn btn-sm btn-success" href="{{ route('planinternets.edit',$planinternet->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Borrar') }}</button>
+                                                    {{-- <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Borrar') }}</button> --}}
                                                 </form>
                                             </td>
                                         </tr>

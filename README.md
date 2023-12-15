@@ -26,3 +26,9 @@
 
     php artisan migrate:refresh 
     php artisan migrate:fresh
+
+    Reiniciar la configuracion de laravel, cuando no actualiza los cambios en rutas o url
+
+    php artisan route:cache
+
+    php artisan config:cache

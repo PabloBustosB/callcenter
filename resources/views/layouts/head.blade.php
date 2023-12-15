@@ -250,7 +250,7 @@
     }
 
     .msg_send_btn {
-        background: #05728f none repeat scroll 0 0;
+        background: #018309 none repeat scroll 0 0;
         border: medium none;
         border-radius: 30%;
         color: #fff;

@@ -62,7 +62,7 @@
             </li>
             <li class="sidenav-item active">
                 <a href="{{ route('interacciones.index') }}" class="sidenav-link">
-                    <i class="sidenav-icon feather icon-check icono-verde"></i>
+                    <i class="sidenav-icon feather icon-phone icono-verde"></i>
                     <div>Interacciones</div>
                 </a>
             </li>
