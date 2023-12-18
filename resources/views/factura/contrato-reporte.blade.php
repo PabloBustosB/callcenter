@@ -11,7 +11,7 @@
         <h1>Solicitud de Servicio de Internet</h1>
 
         <p>En fecha {{ $data['fecha'] }} se solicito el servicio de {{ $data['servicio'] }} solicitado por {{ $data['usuario'] }} para la adquisición del
-            plan {{ $data['plan'] }} con un precio mensual de {{ $data['precio'] }} bs. que ofrece la telefonia VIVA.</p>
+             {{ $data['plan'] }} con un precio mensual de {{ $data['precio'] }} bs. que ofrece la telefonia VIVA.</p>
 
         <!-- Agrega más contenido del contrato según tus necesidades -->
 

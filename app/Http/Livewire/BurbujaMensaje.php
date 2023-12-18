@@ -54,6 +54,9 @@ class BurbujaMensaje extends Component
         // Accion 8 = luces router
         // Accion 9 = mostrar foto del router frontal
         // Accion 10 = reset router
+        //Accion 11 = soporte internet paso final
+        // Accion 12 = reporte internet
+        // Accion 13 = reporte llamadas
         $this->msg = "";
         $this->idusuario = $idusuario;
         $this->mostrarMapa = false;
@@ -120,12 +123,12 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
                 
                 $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Internet Estandar");
-                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 1, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 129);
-                $this->pdfContrato->generatePdf('InternetDomiciliario','PlanEstandar4mbps','129');
+                array_push($this->list, array('bot', "Plan WOW Estandar", "129", 12));
                 $this->interaccion->editar_interaccion(2);
+                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa donde se realizara la instalación", date('d-m-Y H:i:s'), 6));
             }
 
             if ($response[0] == 'ContratarInternetPlanAvanzado') {
@@ -135,13 +138,12 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
 
                 $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Internet Avanzado");
-                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 2, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 139);
-                $this->pdfContrato->generatePdf('Internet Domiciliario','Plan Avanzado de 6 mbps','139');
                 $this->interaccion->editar_interaccion(2);
-
+                array_push($this->list, array('bot', "Plan WOW Avanzado de 6 mbps ", "139", 12));
+                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
             }
 
             if ($response[0] == 'ContratarInternetPlanExplora') {
@@ -151,15 +153,13 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
 
                 $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Internet Explora");
-                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 3, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 199);
-                $this->pdfContrato->generatePdf('Internet Domiciliario','Plan Explora de 16 mbps','199');
                 $this->interaccion->editar_interaccion(2);
+                array_push($this->list, array('bot', "Plan WOW Explora de 16 mbps ", "199", 12));
+                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
             }
-            /* me gustaría tener su servicio de internet  */
-
 
             if ($response[0] == 'ContratarInternetPlanLibre') {
                 array_push($this->list, array('bot', "Nombre: " . Auth::user()->nombre, date('d-m-Y H:i:s'), 5));
@@ -168,13 +168,13 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
 
                 $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Internet Libre");
-                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 4, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 249);
                 $this->pdfContrato->generatePdf('Internet Domiciliario','Plan Libre de 22 mbps','249');
                 $this->interaccion->editar_interaccion(2);
-
+                array_push($this->list, array('bot', "Plan WOW Libre de 22 mbps ", "249", 12));
+                array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
             }
 
             if ($response[0] == 'ContratarPlanLlamadas') {
@@ -188,10 +188,10 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Carnet de identidad: " . Auth::user()->cedula, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "Direccion domiciliaria: " . Auth::user()->direccion, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
-                $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 1);
+                $this->servicioContratado->registrar_servicio_contratado("Se registro la adquisicion del plan llamadas Básico", null, null, null, 1);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 99);
                 $this->interaccion->editar_interaccion(3);
-                $this->pdfContrato->generatePdf('Plan Post-pago','Plan WOW Basico','99');
+                array_push($this->list, array('bot', "Plan WOW Basico ", "99", 13));
             }
 
             if ($response[0] == 'ContratarPlanLlamadasSimple') {
@@ -203,7 +203,7 @@ class BurbujaMensaje extends Component
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 2);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 149);
                 $this->interaccion->editar_interaccion(3);
-                $this->pdfContrato->generatePdf('Plan Post-pago','Plan WOW Simple','149');
+                array_push($this->list, array('bot', "Plan WOW Simple ", "149", 13));
             }
 
             if ($response[0] == 'ContratarPlanLlamadasPlus') {
@@ -215,7 +215,7 @@ class BurbujaMensaje extends Component
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, null, null, null, 3);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 169);
                 $this->interaccion->editar_interaccion(3);
-                $this->pdfContrato->generatePdf('Plan Post-pago','Plan WOW Plus','169');
+                array_push($this->list, array('bot', "Plan WOW Plus ", "169", 13));
             }
             // Registrar Soporte
 
