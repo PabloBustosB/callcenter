@@ -68,7 +68,7 @@
         });
 
         var solicitarInfoData = mesesUnicos.map(mes => {
-            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Contratar servicio de telefonia');
+            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Contratar un servicio de telefonía');
             return data ? data.cantidad : 0;
         });
 

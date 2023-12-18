@@ -7,7 +7,7 @@ use App\Models\ServicioContratado;
 
 class ServicioContratadoController extends Controller
 {
-    public function registrar_servicio_contratado($descripcion,$id_plan_internet, $id_plan_combo, $id_plan_llamadas)
+    public function registrar_servicio_contratado($descripcion,$id_plan_internet,$id_plan_tvcable, $id_plan_combo, $id_plan_llamadas)
     {
         ServicioContratado::create([
             'estadoservicio' => 'Activo',

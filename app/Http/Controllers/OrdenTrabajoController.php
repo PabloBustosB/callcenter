@@ -25,13 +25,13 @@ class OrdentrabajoController extends Controller
     {
         // $ordentrabajos = Ordentrabajo::paginate();
         if (Auth::user()->id == 3){
-            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',1)->get();
+            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',1)->where('estado','pendiente')->get();
         }
         if (Auth::user()->id == 4){
-            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',2)->get();
+            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',2)->where('estado','pendiente')->get();
         }
         if (Auth::user()->id == 5){
-            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',3)->get();
+            $ordenesTrabajo = Ordentrabajo::where('id_tecnico',3)->where('estado','pendiente')->get();
         }
         return view('tecnico.ordenesTrabajo', compact('ordenesTrabajo'));
     }
@@ -91,8 +91,8 @@ class OrdentrabajoController extends Controller
         $ordenTrabajo = OrdenTrabajo::find(OrdenTrabajo::max('id'));
         if ($ordenTrabajo){
             $ordenTrabajo->update([
-                'longitud' => $request->longitud ?? '-17.783492',
-                'latitud' => $request->latitud ?? '-63.181465',
+                'longitud' => $request->longitud ?? '-63.181465',
+                'latitud' => $request->latitud ?? '-17.783492',
             ]);
             session()->flash('success', 'Tu solicitud de contratacion fue registrada Exitosamente');
         }else{

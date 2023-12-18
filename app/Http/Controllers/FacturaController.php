@@ -90,10 +90,10 @@ class FacturaController extends Controller
         $hasta = $request->input('hasta');
 
         $resultados = DB::table('vista_reporte_montos_fecha')
-            ->whereBetween('fecha_factura', [$desde, $hasta])
+            ->where('fecha_factura',  $hasta)
             ->get();
         $montoTotal = DB::table('vista_reporte_montos_fecha')
-            ->whereBetween('fecha_factura', [$desde, $hasta])
+            ->where('fecha_factura',  $hasta)
             ->sum('monto_total');
 
         return View::make('factura.reporte', compact('resultados', 'montoTotal', 'desde', 'hasta'));

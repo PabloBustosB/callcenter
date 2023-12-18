@@ -36,7 +36,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="hasta">Hasta:</label>
-                                <input type="date" class="form-control" id="hasta" name="hasta" value="2023-09-01">
+                                <input type="date" class="form-control" id="hasta" name="hasta" value="2023-12-31">
 
                             </div>
                         </div>

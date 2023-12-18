@@ -78,9 +78,7 @@ CREATE VIEW vista_reporte_montos_fecha AS
 SELECT
     CASE
         WHEN sc.id_plan_internet IS NOT NULL THEN 'Internet'
-        WHEN sc.id_plan_tvcable IS NOT NULL THEN 'TV Cable'
         WHEN sc.id_plan_llamada IS NOT NULL THEN 'Llamada'
-        WHEN sc.id_combo_promo IS NOT NULL THEN 'Combo Promo'
     END AS tipo_plan,
     SUM(f.monto) AS monto_total,
     f.fecha AS fecha_factura

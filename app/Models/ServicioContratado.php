@@ -11,7 +11,7 @@ class ServicioContratado extends Model
     protected $table = 'servicio_contratado';
     protected $fillable = [
         'estadoservicio', 'observacion', 'id_plan_internet',
-        'id_plan_tvcable','id_combo_promo', 'id_plan_llamada'
+        'id_plan_tvcable', 'id_plan_llamada','id_combo_promo'
     ];
 
     public function plan_internet()
