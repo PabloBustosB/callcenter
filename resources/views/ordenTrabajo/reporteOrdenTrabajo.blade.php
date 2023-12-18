@@ -130,7 +130,7 @@
                     label: 'Trabajos Asignados',
                     data: contadores,
                     backgroundColor: 'rgba(20, 200, 52, 0.8)',
-                    borderColor: 'rgba(20, 100, 200, 1)',
+        borderColor: 'rgba(20, 100, 200, 1)',
                     borderWidth: 1.5
                 }]
             },

@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-auto">
                     <label for="ano">Seleccione el año:</label>
-                    <input type="text" class="form-control"  name="ano" readonly value="2023">
+                    <input type="text" class="form-control" id="ano" name="ano" value="2023">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-warning mt-4">Consultar</button>
@@ -63,17 +63,17 @@
 
         // Filtrar los datos por tipo de servicio para cada mes
         var instalacionData = mesesUnicos.map(mes => {
-            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Instalación domiciliaria');
+            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Contratar servicio de internet');
             return data ? data.cantidad : 0;
         });
 
         var solicitarInfoData = mesesUnicos.map(mes => {
-            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Soporte técnico brindado por asistente virtual');
+            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Contratar servicio de telefonia');
             return data ? data.cantidad : 0;
         });
 
         var revisionEquiposData = mesesUnicos.map(mes => {
-            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Contratar un servicio');
+            var data = datos.find(item => item.mes === mes && item.nombre_servicio === 'Solicitud de soporte tecnico');
             return data ? data.cantidad : 0;
         });
 
@@ -84,19 +84,19 @@
                 labels: mesesUnicos,
                 datasets: [
                     {
-                        label: 'Instalación domiciliaria',
+                        label: 'Internet',
                         data: instalacionData,
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     },
                     {
-                        label: 'Soporte técnico brindado por asistente virtual',
+                        label: 'Telefonia',
                         data: solicitarInfoData,
                         borderColor: 'rgb(54, 162, 235)',
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     },
                     {
-                        label: 'Contratar un servicio',
+                        label: 'Soporte',
                         data: revisionEquiposData,
                         borderColor: 'rgb(75, 192, 192)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -124,13 +124,16 @@
 
     <!-- Agrega el código JavaScript para configurar flatpickr -->
 <script>
+document.addEventListener("DOMContentLoaded", function () {
     flatpickr("#ano", {
         altInput: true,
-        altFormat: "Y",
-        dateFormat: "Y",
+        altFormat: "YYYY",
+        dateFormat: "YYYY",
         minDate: "2000-01-01",
         maxDate: "2099-12-31",
+        clickOpens: true,
     });
+}
 </script>
 
 <script>
