@@ -29,27 +29,22 @@
                             @endif
                             @if ($elem[3] == 3)
                                 <div class="row">
-                                    <img src="{{ asset('homes/images/wow/2.png') }}"
-                                        style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/wow/3.png') }}"
-                                        style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/wow/4.png') }}"
-                                        style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/wow/2.png') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/wow/3.png') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/wow/4.png') }}" style="width: 33%; height: 250px;">
                                 </div>
                             @endif
                             @if ($elem[3] == 4)
                                 <div class="row">
-                                    <img src="{{ asset('homes/images/Promos/1.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/Promos/2.png') }}" style="width: 33%; height: 250px;">
-                                    <img src="{{ asset('homes/images/Promos/3.png') }}" style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/Promos/1.png') }}"
+                                        style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/Promos/2.png') }}"
+                                        style="width: 33%; height: 250px;">
+                                    <img src="{{ asset('homes/images/Promos/3.png') }}"
+                                        style="width: 33%; height: 250px;">
                                 </div>
                             @endif
-                            @if ($elem[3] == 7)
-                                <div class="row">
-                                    <img src="{{ asset('homes/images/images-soporte/modem-off.gif') }}"
-                                        style="width: 50%; height: 250px;">
-                                </div>
-                            @endif
+
                             @if ($elem[3] == 6)
                                 <div id="map" style="height: 400px;"></div>
                                 <form method="POST" action="{{ route('ordenTrabajo.update') }}">
@@ -57,19 +52,49 @@
                                     @method('PUT')
                                     <input type="text" hidden id="latitud" name="latitud">
                                     <input type="text" hidden id="longitud" name="longitud">
-                                    <button type="submit" class="btn btn-success">Realizar Solicitud</button>
+                                    <button style="align-content: center" type="submit"
+                                        class="btn btn-success">Realizar Solicitud</button>
                                 </form>
                             @endif
                             @if ($elem[3] == 5)
                                 <p>
                                     {{ $elem[1] }}
                                 </p>
+                            @elseif ($elem[3] == 9)
+                                <p>{{ $elem[1] }}</p>
+                                <div class="row">
+                                    <img src="{{ asset('homes/images/images-soporte/router.jpg') }}"
+                                        style="width: 50%; height: 400px;">
+                                </div>
+                            @elseif ($elem[3] == 7)
+                                <p>{{ $elem[1] }}</p>
+                                <div class="row">
+                                    <img src="{{ asset('homes/images/images-soporte/modem-off.gif') }}"
+                                        style="width: 50%; height: 250px;">
+                                </div>
+                            @elseif ($elem[3] == 8)
+                                <p>{{ $elem[1] }}</p>
+                                <div class="row">
+                                    <img src="{{ asset('homes/images/images-soporte/modem-luces.gif') }}"
+                                        style="width: 50%; height: 250px;">
+                                </div>
+                            @elseif ($elem[3] == 10)
+                                <p>{{ $elem[1] }}</p>
+                                <div class="row">
+                                    <img src="{{ asset('homes/images/images-soporte/modemReset2.jpg') }}"
+                                        style="width: 50%; height: 250px;">
+                                </div>
+                            @elseif ($elem[3] == 11)
+                                <p>{{ $elem[1] }}</p>
+                                <div class="row">
+                                    <img src="{{ asset('homes/images/images-soporte/Router2paso.png') }}"
+                                        style="width: 50%; height: 400px;">
+                                </div>
                             @else
                                 <p>
                                     {{ $elem[1] }}
                                 </p>
                                 <span class="time_date"> {{ $elem[2] }} </span>
-                                {{-- @livewire ('mapa-component') --}}
                             @endif
                         </div>
                     </div>

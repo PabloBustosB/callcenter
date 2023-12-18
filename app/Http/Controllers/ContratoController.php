@@ -13,6 +13,7 @@ class ContratoController extends Controller
 {
     public function guardar_contrato($id_usuario,$fecha_inicio,$precio)
     {
+        $fecha_factura = $fecha_inicio;
         $usuario = User::find($id_usuario);
         Contrato::create([
             'fecha_inicio' => $fecha_inicio,
@@ -25,7 +26,7 @@ class ContratoController extends Controller
         ]);
         
         Factura::create([
-            'fecha' => $fecha_inicio,
+            'fecha' => $fecha_factura,
             'monto' => $precio,
             'id_servicio_contratado' => ServicioContratado::max('id'),
         ]);

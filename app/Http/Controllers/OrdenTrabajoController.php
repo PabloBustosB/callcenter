@@ -94,7 +94,7 @@ class OrdentrabajoController extends Controller
                 'longitud' => $request->longitud ?? '-17.783492',
                 'latitud' => $request->latitud ?? '-63.181465',
             ]);
-            session()->flash('success', 'Tu solicitud de contratacion de servicio fue registrada Exitosamente');
+            session()->flash('success', 'Tu solicitud de contratacion fue registrada Exitosamente');
         }else{
             session()->flash('error', 'Tu solicitud de contratacion de servicio NO fue registrada');
         }

@@ -6,9 +6,9 @@
     <div id="main_slider" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                @include('components.rowPromos')
                 @include('components.rowLlamadas')
                 @include('components.rowInternet')
+                @include('components.rowPromos')
             </div>
         </div>
     </div>

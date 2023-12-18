@@ -9,7 +9,7 @@ use App\Http\Controllers\InteraccionController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Livewire\ChatModal;
 use App\Http\Livewire\MapaComponent;
-
+use App\Http\Controllers\PdfController;
 
 
 
@@ -67,3 +67,7 @@ Route::get('/chat/{id}', [ChatController::class, 'get_chats'])->name('interaccio
 
 Route::put('/guardar-ubicacion', [OrdenTrabajoController::class, 'update'])->name('ordenTrabajo.update');
 Route::get('/tecnico-ordenes-trabajo',[OrdenTrabajoController::class, 'index'])->name('tecnico.ordenesTrabajo');
+
+Route::get('/generate-pdf/{servicio}/{plan}/{precio}', [PdfController::class, 'generatePdf']);
+
+// Route::view('/ReporteContrato', 'factura.contrato-reporte')->name('contrato');
