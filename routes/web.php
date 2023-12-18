@@ -68,6 +68,6 @@ Route::get('/chat/{id}', [ChatController::class, 'get_chats'])->name('interaccio
 Route::put('/guardar-ubicacion', [OrdenTrabajoController::class, 'update'])->name('ordenTrabajo.update');
 Route::get('/tecnico-ordenes-trabajo',[OrdenTrabajoController::class, 'index'])->name('tecnico.ordenesTrabajo');
 
-Route::get('/generate-pdf/{servicio}/{plan}/{precio}', [PdfController::class, 'generatePdf']);
+Route::get('/generate-pdf/{servicio}/{plan}/{precio}', [PdfController::class, 'generatePdf'])->name('pdfContrato');
 
 // Route::view('/ReporteContrato', 'factura.contrato-reporte')->name('contrato');

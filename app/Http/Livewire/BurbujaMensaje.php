@@ -118,13 +118,13 @@ class BurbujaMensaje extends Component
                 array_push($this->list, array('bot', "Carnet de identidad: " . Auth::user()->cedula, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "Direccion domiciliaria: " . Auth::user()->direccion, date('d-m-Y H:i:s'), 5));
                 array_push($this->list, array('bot', "Número de celular: " . Auth::user()->telefono, date('d-m-Y H:i:s'), 5));
-
+                
                 $this->ordenTrabajo->guardar_orden_trabajo("Instalacion Servicio plan Internet Estandar");
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 1, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 129);
-                $this->pdfContrato->generatePdf('Internet Domiciliario','Plan Estandar de 4 mbps','129');
+                $this->pdfContrato->generatePdf('InternetDomiciliario','PlanEstandar4mbps','129');
                 $this->interaccion->editar_interaccion(2);
             }
 

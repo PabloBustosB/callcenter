@@ -31,10 +31,6 @@ class InteraccionController extends Controller
         ]);
         // return redirect()->route('asistente.index');
     }
-    public function cerrar_chat(){
-        sleep(5);
-        return redirect()->route('home');
-    }
 
     public function editar_interaccion($tipo_servicio)
     {
