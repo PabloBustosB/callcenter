@@ -147,6 +147,23 @@
 
 </script>
 
+<script>
+    // Agrega esta línea en tu función para inicializar Flatpickr automáticamente
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#desde", {
+        dateFormat: "Y/m/d",
+        placeholder: "Seleccionar una fecha",
+        clickOpens: true // Mostrar el calendario al recibir el foco
+    });
+
+    flatpickr("#hasta", {
+        dateFormat: "Y/m/d",
+        placeholder: "Seleccionar una fecha",
+        clickOpens: true // Mostrar el calendario al recibir el foco
+    });
+});
+</script>
+
 
 
 
