@@ -25,7 +25,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="hasta">Hasta:</label>
-                                <input type="date" class="form-control" id="hasta" name="hasta" value="2023-12-18">
+                                <input type="date" class="form-control" id="hasta" name="hasta" value="2023-12-19">
                             </div>
                         </div>
                         <div class="col-md-4 p-4">

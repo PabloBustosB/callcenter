@@ -32,6 +32,13 @@ class InteraccionController extends Controller
         // return redirect()->route('asistente.index');
     }
 
+    public function Bayes($probA, $probB,$probAB,$chats){
+        foreach ($chats as $chat) {
+            $porcentaje_probabilidad =+ $probAB*$probA/$probB;
+        }
+        return $porcentaje_probabilidad;
+    }
+
     public function editar_interaccion($tipo_servicio)
     {
         $interaccion = Interaccion::find(Interaccion::max('id'));

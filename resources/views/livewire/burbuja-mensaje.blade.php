@@ -48,11 +48,6 @@
                             @if ($elem[3] == 6)
                                 <div id="map" style="height: 400px;"></div>
                                 <br>
-                                <form
-                                    action="{{ route('pdfContrato', ['servicio' => 'Internet', 'plan' => $elem[1], 'precio' => $elem[2]]) }}"
-                                    method="GET">
-                                    <button type="submit" class="btn btn-primary">Descargar solicitud</button>
-                                </form>
                                 <form method="POST" action="{{ route('ordenTrabajo.update') }}">
                                     @csrf
                                     @method('PUT')
@@ -96,12 +91,12 @@
                                     <img src="{{ asset('homes/images/images-soporte/Router2paso.png') }}"
                                         style="width: 50%; height: 400px;">
                                 </div>
-                            {{-- @elseif ($elem[3] == 12)
+                            @elseif ($elem[3] == 12)
                                 <form
                                     action="{{ route('pdfContrato', ['servicio' => 'Internet', 'plan' => $elem[1], 'precio' => $elem[2]]) }}"
                                     method="GET">
                                     <button type="submit" class="btn btn-primary">Descargar solicitud</button>
-                                </form> --}}
+                                </form>
                             @elseif ($elem[3] == 13)
                                 <form
                                     action="{{ route('pdfContrato', ['servicio' => 'Plan Post-pago de Telefonía', 'plan' => $elem[1], 'precio' => $elem[2]]) }}"

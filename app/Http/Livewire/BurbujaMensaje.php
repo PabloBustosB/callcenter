@@ -81,7 +81,7 @@ class BurbujaMensaje extends Component
             }
             $this->conversacion->guardar_chat($this->idusuario, $this->msg, date('Y-m-d H:i:s'), $porcentaje);
             if ($response[0] == 'SoporteInternet') {
-                array_push($this->list, array('bot', $response[0], date('d-m-Y H:i:s'), 1));
+                // array_push($this->list, array('bot', $response[0], date('d-m-Y H:i:s'), 1));
                 array_push($this->list, array('bot', $response[1], date('d-m-Y H:i:s'), 1));
                 array_push($this->list, array('bot', "Dirigete al Router de internet, es parecido a esta imagen", date('d-m-Y H:i:s'), 9));
                 array_push($this->list, array('bot', "Desenchufalo de la toma de corriente, puedes guiarte con la siguiente imagen: ", date('d-m-Y H:i:s'), 7));
@@ -92,7 +92,7 @@ class BurbujaMensaje extends Component
                 $this->interaccion->editar_interaccion(4);
             } else {
                 // Ver La intent
-                array_push($this->list, array('bot', $response[0], date('d-m-Y H:i:s'), 1));
+                // array_push($this->list, array('bot', $response[0], date('d-m-Y H:i:s'), 1));
                 array_push($this->list, array('bot', $response[1], date('d-m-Y H:i:s'), 1));
                 $this->conversacion->guardar_chat('Asistente-Virtual', $response[1], date('Y-m-d H:i:s'), 0);
             }
@@ -126,9 +126,9 @@ class BurbujaMensaje extends Component
                 $this->emit('mapaCargado');
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 1, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 129);
-                array_push($this->list, array('bot', "Plan WOW Estandar", "129", 12));
                 $this->interaccion->editar_interaccion(2);
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa donde se realizara la instalación", date('d-m-Y H:i:s'), 6));
+                array_push($this->list, array('bot', "Plan WOW Estandar", "129", 12));
             }
 
             if ($response[0] == 'ContratarInternetPlanAvanzado') {
@@ -142,8 +142,8 @@ class BurbujaMensaje extends Component
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 2, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 139);
                 $this->interaccion->editar_interaccion(2);
-                array_push($this->list, array('bot', "Plan WOW Avanzado de 6 mbps ", "139", 12));
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
+                array_push($this->list, array('bot', "Plan WOW Avanzado de 6 mbps ", "139", 12));
             }
 
             if ($response[0] == 'ContratarInternetPlanExplora') {
@@ -157,8 +157,8 @@ class BurbujaMensaje extends Component
                 $this->servicioContratado->registrar_servicio_contratado("Se registra una instalación en esta dirección " . Auth::user()->direccion, 3, null, null, null);
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 199);
                 $this->interaccion->editar_interaccion(2);
-                array_push($this->list, array('bot', "Plan WOW Explora de 16 mbps ", "199", 12));
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
+                array_push($this->list, array('bot', "Plan WOW Explora de 16 mbps ", "199", 12));
             }
 
             if ($response[0] == 'ContratarInternetPlanLibre') {
@@ -173,8 +173,8 @@ class BurbujaMensaje extends Component
                 $this->contrato->guardar_contrato($this->idusuario, date('Y-m-d'), 249);
                 $this->pdfContrato->generatePdf('Internet Domiciliario','Plan Libre de 22 mbps','249');
                 $this->interaccion->editar_interaccion(2);
-                array_push($this->list, array('bot', "Plan WOW Libre de 22 mbps ", "249", 12));
                 array_push($this->list, array('bot', "Seleciona tu ubicacion en el mapa", date('d-m-Y H:i:s'), 6));
+                array_push($this->list, array('bot', "Plan WOW Libre de 22 mbps ", "249", 12));
             }
 
             if ($response[0] == 'ContratarPlanLlamadas') {
